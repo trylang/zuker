@@ -1,0 +1,22 @@
+<navigator label="面对面积分"/>
+<view class="header">
+	<step data="{{['查询', '确认身份', '为会员积分', '完成']}}" index="{{3}}" />
+</view>
+<view class="body">
+    <view class="success" />
+    <view class="title">成功为会员积分</view>
+	<view class="coupon">
+        <view class="marks id">
+            <view class="mark-item"><view class="label">积分</view>+{{customerInfo.scoreChange}}</view>
+		    <view class="mark-item"><view class="label">成长值</view>+{{customerInfo.growthChange}}</view>
+        </view>
+		
+		<view class="id normal" wx:for="{{info}}" wx:key="item.label">
+			<view class="label">{{item.label}}:</view>
+			{{customerInfo[item.value] || ''}}
+		</view>
+	</view>
+</view>
+<view class="footer">
+	<abutton title="返回首页" bindtap="homeHandler" />
+</view>

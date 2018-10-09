@@ -1,0 +1,38 @@
+<navigator label="扫码退券"></navigator>
+<view class="header">
+	<step data="{{['选择查询类型', '查询', '退券', '完成']}}" index="{{2}}" />
+</view>
+<view class="body">
+	<image wx:if="{{customerInfo.icon}}" mode="aspectFill" src="{{customerInfo.icon}}" />
+	<view class="title">{{customerInfo.name}}</view>
+	<view class="id">
+		<view class="label">会员卡号</view>
+		{{customerInfo.cardNo}}
+    </view>
+    <view class="id">
+		<view class="label">手机号码</view>
+		{{customerInfo.mobile}}
+	</view>
+</view>
+<view class="footer">
+	<view class="notice">
+		<view class="text">选择已核销的优惠券</view>
+	</view>
+	<view class="couponList">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <radio class="radio" wx:for-items="{{couponList}}" wx:key="item" value="{{item.qrCode}}" checked="{{item.checked}}">
+                <coupon cover="{{item.cover}}">
+                    <view class="detail">
+                        <view class="info {{item.checked ? 'text-val' : 'uncheck-val'}}"> 券码： <view class="val {{item.checked ? 'put-val' : 'uncheck-val'}}">{{item.qrCode}}</view>  
+                        </view>
+                    </view>
+                    <view class="title-val {{item.checked ? 'info-val' : 'uncheck-val'}}">{{item.title}}</view>
+                    <view class="detail">
+                        <view class="{{item.checked ? 'text-val' : 'uncheck-val'}}"> 领券有效期：{{item.date}} </view>
+                    </view>  
+                </coupon>
+            </radio>
+        </radio-group>
+    </view>
+    <abutton title="确认退券" disabled="{{checkedCou}}" bindtap="nextHandler" />
+</view>

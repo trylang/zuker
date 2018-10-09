@@ -1,0 +1,35 @@
+<navigator />
+<alert title="投放量" id="appendAlert" bindconfirm="couponAppendConfirmHandler">
+	<input type="number" confirm-type="done" value="{{appendNum}}" bindinput="couponAppendInputHandler" maxlength="8" placeholder="请输入整数" placeholder-class="appendPlaceholder" class="appendInput" />
+	<view>可投放量: {{couponLeft<0?0:couponLeft}}</view>
+</alert>
+<view class="header">
+	<view class="title">
+		<view class="tag">{{tag}}</view>
+		{{title}}
+	</view>
+	<view class="extend">
+		<view class="label">投放合计:</view>
+		{{launchNum}}
+		<view class="label">可投放:</view>
+		{{couponLeft<0?0:couponLeft}}
+	</view>
+</view>
+<view class="actList">
+	<title title="请选择投放活动" extend="" />
+	<view class="launchItem" wx:for="{{activityList}}" wx:key="item">
+		<coupon-append data="{{item}}" data-index="{{index}}" data-id="{{item.id}}" bindconfirm="couponAppendHandler" bindselect="couponSelectHandler" bindunselect="couponUnSelectHandler">
+			<coupon size="{{100}}" cover="{{item.cover}}" title="{{item.title}}" tag="{{item.tag}}" tagColor="{{item.tagColor}}" extend="{{item.extend}}">
+				<slot name="append">
+					<view class="left">券剩余量</view><view class="leftNum">{{item.leftNum}}</view>
+				</slot>
+			</coupon>
+		</coupon-append>
+		<view class="analysis">已投放: <view class="black">{{item.launchNum}}</view>已核销: <view class="red">{{item.writeoffNum}}</view></view>
+	</view>
+</view>
+<fixed title="确认投放" bindconfirm="confirmAppendHandler">
+	<view class="fixedBefore">
+		<view class="gray">合计:</view> {{appendTypes}}个活动 共 <view class="red">{{appendTotal}}</view> 张
+	</view>
+</fixed>

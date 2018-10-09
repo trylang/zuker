@@ -1,0 +1,173 @@
+<navigator />
+<view class="fixArea {{ipx?'ipx':''}} {{fixAreaTarget?'open':''}}" bindtap="fixedFocusOutHandler" catchtouchmove="preventHandler">
+	<textarea value="{{fixAreaHtml}}" focus="{{fixAreaTarget}}" bindinput="fixedInputHandler" fixed="{{true}}" maxlength="{{fixAreaMax}}" bindblur="fixedFocusOutHandler" />
+	<view style="position: absolute; right: 20rpx; top: 400rpx; opacity: .2; filter: alpha(opacity = 20); pointer-events: none;">{{fixAreaHtml.length}}/{{fixAreaMax}}</view>
+	<view class="button" bindtap="fixedFocusOutHandler">确定</view>
+</view>
+<view class="form {{fixAreaTarget?'open':''}}">
+	<view class="formItem require" wx:if="{{couponMode!='discount' && couponMode!='cash'}}">
+		<view class="label">券标题</view>
+		<input type="text" value="{{title}}" maxlength="{{15}}" data-key="title" bindinput="inputHandler" placeholder="请输入券标题" placeholder-style="color: #ccc;" />
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='discount'}}">
+		<view class="label">折扣</view>
+		<input type="number" value="{{discountOff}}" data-key="discountOff" data-max="100" bindinput="inputHandler" placeholder="请输入券折扣(10-100)" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">折</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='cash'}}">
+		<view class="label">金额</view>
+		<input type="number" value="{{cashPrice}}" data-key="cashPrice" data-max="999999" bindinput="inputHandler" placeholder="请输入券金额" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem">
+		<view class="label">副标题</view>
+		<input type="text" value="{{subTitle}}" maxlength="{{15}}" data-key="subTitle" bindinput="inputHandler" placeholder="请输入券副标题" placeholder-style="color: #ccc;" />
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='free'}}">
+		<view class="label">成本价</view>
+		<input type="number" value="{{freeCost}}" data-key="freeCost" data-max="999999" bindinput="inputHandler" placeholder="请输入成本价" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='brand'}}">
+		<view class="label">券数量</view>
+		<input type="number" value="{{total}}" data-key="total" data-max="999999" bindinput="inputHandler" placeholder="请输入券数量" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">张</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='brand'}}">
+		<view class="label">展示有效期</view>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='brand'}}">
+		<view class="label radio" data-key="timeShowType" data-value="{{1}}" bindtap="radioHandler"><view class="{{timeShowType==1?'selected':''}}" />不限</view>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='brand'}}">
+		<view class="label radio" data-key="timeShowType" data-value="{{2}}" bindtap="radioHandler"><view class="{{timeShowType==1?'':'selected'}}" />日期范围</view>
+		<input type="text" value="{{timeShow[0]&&timeShow[1]?timeShow[0]+' - '+timeShow[1]:''}}" disabled="{{true}}" bindtap="openShowPickerHandler" placeholder="请选择时间范围" placeholder-style="color: #ccc;" />
+	</view>
+	<view style="width: 100%; position: relative;">
+		<datepicker mode="range" id="showPicker" autoClose="{{true}}" bindclose="closePickerHandler">
+			<view class="controller">
+				<view class="button" bindtap="showPickerResetHandler">重置</view>
+				<view class="button fill" bindtap="showPickConfirmHandler">确定</view>
+			</view>
+		</datepicker>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='brand'}}">
+		<view class="label">领取有效期</view>
+		<input type="text" value="{{timeGet[0]&&timeGet[1]?timeGet[0]+' - '+timeGet[1]:''}}" disabled="{{true}}" bindtap="openGetPickerHandler" placeholder="请选择时间范围" placeholder-style="color: #ccc;" />
+	</view>
+	<view style="width: 100%; position: relative;">
+		<datepicker mode="range" id="getPicker" autoClose="{{true}}" bindclose="closePickerHandler">
+			<view class="controller">
+				<view class="button" bindtap="getPickerResetHandler">重置</view>
+				<view class="button fill" bindtap="getPickConfirmHandler">确定</view>
+			</view>
+		</datepicker>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='brand'}}">
+		<view class="label">核销有效期</view>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='brand'}}">
+		<view class="label radio" data-key="timeWriteoffType" data-value="{{0}}" bindtap="radioHandler"><view class="{{timeWriteoffType?'':'selected'}}" />日期范围</view>
+		<input type="text" value="{{timeWriteoff[0]&&timeWriteoff[1]?timeWriteoff[0]+' - '+timeWriteoff[1]:''}}" disabled="{{true}}" bindtap="openWriteoffPickerHandler" placeholder="请选择时间范围" placeholder-style="color: #ccc;" />
+	</view>
+	<view style="width: 100%; position: relative;">
+		<datepicker mode="range" id="writeoffPicker" autoClose="{{true}}" bindclose="closePickerHandler">
+			<view class="controller">
+				<view class="button" bindtap="pickerResetHandler">重置</view>
+				<view class="button fill" bindtap="pickConfirmHandler">确定</view>
+			</view>
+		</datepicker>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='brand'}}">
+		<view class="label radio" data-key="timeWriteoffType" data-value="{{1}}" bindtap="radioHandler"><view class="{{timeWriteoffType?'selected':''}}" />领取后</view>
+		<input type="number" value="{{writeOffActiveAfterDays}}" data-key="writeOffActiveAfterDays" data-max="999" bindinput="inputHandler" style="text-align: center;" placeholder="0" placeholder-style="color: #ccc;" />
+		<view style="padding: 0 5rpx;">天生效, 有效天数</view>
+		<input type="number" value="{{writeOffValidDays}}" data-key="writeOffValidDays" data-max="999" bindinput="inputHandler" style="text-align: center;" placeholder="0" placeholder-style="color: #ccc;" />
+		<view>天</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='normal'}}">
+		<view class="label">原价</view>
+		<input type="number" value="{{normalPrice}}" data-key="normalPrice" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='normal'}}">
+		<view class="label">成本价</view>
+		<input type="number" value="{{normalCost}}" data-key="normalCost" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='gift'}}">
+		<view class="label">礼品原价</view>
+		<input type="number" value="{{giftPrice}}" data-key="giftPrice" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='gift'}}">
+		<view class="label">成本价</view>
+		<input type="number" value="{{giftCost}}" data-key="giftCost" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='single'}}">
+		<view class="label">商品原价</view>
+		<input type="number" value="{{singlePrice}}" data-key="singlePrice" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode=='single'}}">
+		<view class="label">成本价</view>
+		<input type="number" value="{{singleCost}}" data-key="singleCost" data-max="999999" bindinput="inputHandler" placeholder="请输入整数" placeholder-style="color: #ccc;" />
+		<view style="width: 60rpx;text-align:right;">元</view>
+	</view>
+	<view class="formItem require">
+		<view class="label">封面图片<view style="color: #ccc; font-size: 28rpx; margin-left: 10rpx; display: inline-block;">(限传5张,每张大小不超过2Mb)</view></view>
+	</view>
+	<view class="formItem multiline">
+		<view class="image" wx:if="{{slider.length<1}}" data-type="slider" data-index="{{0}}" data-size="2048" bindtap="chooseImageHandler">轮播首图(必传)</view>
+		<view class="image none" wx:for="{{slider}}" wx:key="index">
+			<image mode="aspectFill" src="{{item.imgUrl}}" style="width: 100%; height: 100%;" />
+			<view class="delete" data-index="{{index}}" bindtap="sliderDeleteHandler" />
+		</view>
+		<view class="image" wx:if="{{slider.length > 0 && slider.length < 5}}" data-type="slider" data-index="{{slider.length}}" data-size="2048" bindtap="chooseImageHandler" />
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='gift' && couponMode!='single' && couponMode!='brand'}}">
+		<view class="label">使用门槛</view>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='gift' && couponMode!='single' && couponMode!='brand'}}">
+		<view class="label radio" data-key="useLimitType" data-value="{{0}}" bindtap="radioHandler"><view class="{{useLimitType?'':'selected'}}" />无</view>
+	</view>
+	<view class="formItem" wx:if="{{couponMode!='gift' && couponMode!='single' && couponMode!='brand'}}">
+		<view class="label radio" data-key="useLimitType" data-value="{{1}}" bindtap="radioHandler"><view class="{{useLimitType?'selected':''}}" />消费满</view>
+		<view style="width: 200rpx;">
+			<input type="number" value="{{useLimit}}" data-key="useLimit" data-max="999999" bindinput="inputHandler" style="text-align: center;" placeholder="0" placeholder-style="color: #ccc;" />
+		</view>
+		<view style="padding: 0 5rpx;">元可使用此券</view>
+	</view>
+	<view class="formItem require" wx:if="{{couponMode!='brand'}}">
+		<view class="label">使用说明</view>
+	</view>
+	<view class="formItem" data-key="useDetail" data-maxlength="{{200}}" bindtap="fixedHandler" wx:if="{{couponMode!='brand'}}">
+		<view class="textarea" hover-class="textareaHover" hover-start-time="{{10}}" hover-stay-time="{{100}}">		{{useDetail}}
+		</view>
+	</view>
+	<!-- <view class="formItem">
+		<textarea value="{{useDetail}}" focus="{{useDetailFocus}}" data-key="useDetail" bindinput="inputHandler" auto-height="{{true}}" fixed="{{true}}" maxlength="{{200}}" />
+	</view> -->
+	<!-- <view class="formItem">
+		<view class="couter" style="margin-top: {{useDetail.length>20?'0':'-44'}}rpx;">{{useDetail.length}}/200</view>
+	</view> -->
+	<view class="formItem">
+		<view class="label">增加图文</view>
+	</view>
+	<!-- <view class="formItem instrument bigPic" wx:for="{{useHtml}}" wx:key="item" wx:if="{{couponId}}">
+		<image mode="aspectFill" src="{{item.src}}" wx:if="{{item.src}}" style="width: 100%;" />
+		<view wx:if="{{!item.src}}" style="line-height: 60rpx; padding: 20rpx 0; padding-left: 30rpx; text-indent: 0; white-space: initial; word-wrap: break-word; word-break: break-all;">{{item}}</view>
+		<view class="delete" data-index="{{index}}" data-src="{{item.src||''}}" catchtap="deleteHtmlHandler" />
+	</view> -->
+	<coupon-html wx:for="{{useHtml}}" wx:key="item" mode="{{item.src}}" maxlength="{{100}}" data-type="modify" data-size="2048" data-index="{{index}}" id="html_modify_{{index}}" bindinput="fixedHandler" bindchoose="chooseImageHandler" data-key="htmlMedia" data-maxlength="{{100}}" />
+	<coupon-html wx:for="{{tmpHtml}}" wx:key="item" mode="{{item=='img'}}" maxlength="{{100}}" data-type="append" data-size="2048" data-index="{{index}}" id="html_comp_{{index}}" bindinput="fixedHandler" bindchoose="chooseImageHandler" binddelete="checkAppendStatusHandler" data-key="extendMedia" data-maxlength="{{100}}" />
+	<view class="formItem" style="padding-top: 50rpx;">
+		<view class="appendHtmlButton {{!!appendImageAble?'active':''}}" bindtap="appendImageHandler">添加图片</view>
+		<view class="appendHtmlButton {{!!appendHtmlAble?'active':''}}" bindtap="appendHtmlHandler">添加文字</view>
+	</view>
+	<view style="width: 100%; height: 300rpx;" />
+</view>
+<view class="fixed">
+	<view class="button red" bindtap="saveHandler">{{couponId?'保存':'创建'}}优惠券</view>
+</view>

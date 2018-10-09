@@ -1,0 +1,52 @@
+<navigator />
+<alert title="追加投放" id="appendAlert" bindconfirm="couponAppendConfirmHandler">
+	<input type="number" confirm-type="done" value="{{appendNum}}" bindinput="couponAppendInputHandler" maxlength="8" placeholder="请输入整数" placeholder-class="appendPlaceholder" class="appendInput" />
+	<view>可投放量: {{couponLeft}}</view>
+</alert>
+<view class="header">
+	<view class="overview">
+		<image mode="aspectFill" src="{{cover}}" />
+		<view class="col">
+			<view class="title"><view class="tag">{{tag}}</view>{{title}}</view>
+			<view class="extend">{{extend}}</view>
+		</view>
+	</view>
+	<view class="info">
+		<view class="row flex">
+			<view class="col">
+				<view>{{totalNum}}</view>
+				券总量
+			</view>
+			<view class="col">
+				<view>{{launchNum}}</view>
+				投放量
+			</view>
+			<view class="col">
+				<view>{{getNum}}</view>
+				领取量
+			</view>
+			<view class="col">
+				<view>{{writeoffNum}}</view>
+				核销量
+			</view>
+		</view>
+	</view>
+</view>
+<view class="couponList">
+	<title title="已投放活动" extend="" />
+	<view class="coupon" wx:for="{{batchList}}" wx:key="item"  data-index="{{index}}" bindtap="goCouponInfoHandler">
+		<view class="arrow">
+			<view class="name">
+				| {{item.activityName}}
+			</view>
+			<view class="analysis">
+				{{item.analysis}}
+			</view>
+		</view>
+		<!-- <coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.activityName}}" extend="{{item.extend}}">
+			<coupon-analysis data-id="{{item.couponActivityId}}" extend="{{item.analysis}}" button="{{item.appendAble?'追加':''}}" bindconfirm="couponAppendHandler" />
+		</coupon> -->
+	</view>
+</view>
+<view class="bottomer" />
+<fixed title="新增投放活动" bindconfirm="goAppendHandler" />

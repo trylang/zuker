@@ -1,0 +1,14 @@
+<view class="comm-alert" hidden="{{!active}}">
+	<view class="comm-black" bindtap="cancelHandler" />
+	<view class="comm-container">
+		<view class="header">{{titleText||title}}</view>
+		<view class="body">
+			<view hidden="{{contentText}}"><slot /></view>
+			<view hidden="{{!contentText}}">{{contentText}}</view>
+		</view>
+		<view class="footer">
+			<view class="cancel" catchtap="cancelHandler" wx:if="{{cancel}}">{{cancel}}</view>
+			<view class="confirm" catchtap="confirmHandler" wx:if="{{confirm}}">{{confirm}}</view>
+		</view>
+	</view>
+</view>

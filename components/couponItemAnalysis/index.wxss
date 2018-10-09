@@ -1,0 +1,43 @@
+.comm-coupon-item-analysis{
+	font-size: 0;
+	line-height: 0;
+	-webkit-display: flex;
+	display: flex;
+}
+.comm-coupon-item-analysis .analysis{
+	width: 66.66%;
+	padding-top: 10rpx;
+}
+.comm-coupon-item-analysis .analysis > view{
+	font-size: 24rpx;
+	width: 45%;
+	height: 40rpx;
+	line-height: 40rpx;
+	margin-right: 5%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+.comm-coupon-item-analysis .analysis > view > view{
+	font-weight: bold;
+	color: #17305c;
+	margin-right: 10rpx;
+	display: inline-block;
+}
+.comm-coupon-item-analysis .controller{
+	width: 33.33%;
+	display: inline-block;
+	position: relative;
+}
+.comm-coupon-item-analysis .controller .button{
+	font-size: 30rpx;
+	color: #fff;
+	background: #ff5400;
+	line-height: 50rpx;
+	border-radius: 50rpx;
+	padding: 0 30rpx;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}

@@ -1,0 +1,20 @@
+<navigator label="面对面赠券"></navigator>
+<view class="header">
+	<step data="{{['查询', '赠券', '完成']}}" index="{{2}}" />
+</view>
+<view class="body">
+    <view class="success" />
+    <view class="title">成功赠送会员优惠券</view>
+	<view class="coupon">       
+        <view class="title">{{couponInfo.mainInfo}}</view>
+		<view class="extend">{{couponInfo.categoryDesc}}</view>
+		
+		<view class="id normal">
+			<view class="label">领券有效期</view>
+			{{couponInfo.getStartTime || ''}}-{{couponInfo.getEndTime || ''}}
+		</view>
+	</view>
+</view>
+<view class="footer">
+	<abutton title="返回首页" bindtap="homeHandler" />
+</view>

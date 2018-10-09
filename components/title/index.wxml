@@ -1,0 +1,4 @@
+<view class="comm-title">
+	<view class="title">{{title}}</view>
+	<view class="link" wx:if="{{extend}}" bindtap="routerHandler">{{extend}}></view>
+</view>

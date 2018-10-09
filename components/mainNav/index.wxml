@@ -1,0 +1,11 @@
+<view class="comm-nav {{ipx?'ipx':''}}" style="background: {{bgColor}}">
+	<view wx-if="{{customerRouter.length==0}}" class="{{['item', $index==index?'active':'']}}" wx:for="{{router}}" wx:for-index="$index" wx:key="path" data-path="{{item.path}}" bindtap="routerHandler">
+		<image mode="aspectFill" src="{{($index==index?item.active:'')||item.icon}}" class="{{item.label?'':'icon'}}" />
+		{{item.label}}
+	</view>
+
+	<view wx-if="{{customerRouter.length > 0}}" class="{{['item', $index==index?'active':'']}}" wx:for="{{customerRouter}}" wx:for-index="$index" wx:key="path" data-path="{{item.path}}" bindtap="routerHandler">
+		<image wx-if="{{item.imgUrl}}" mode="aspectFill" src="{{($index==index?item.active:'')||item.icon}}" class="{{item.label?'':'icon'}}" />
+		<text class="{{item.imgUrl ? '' : 'item-noimg-label'}}" style="color: {{$index==index? item.fontActColor : item.fontColor}}">{{item.label}}</text>
+	</view>
+</view>

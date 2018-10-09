@@ -1,0 +1,10 @@
+<navigator label="客流雷达"/>
+
+<view class="container">
+    <topbar />
+    <view class="top-main">
+        <echart id="mychart-pie" canvas-id="mychart-pie" ec="{{ ec }}"></echart>
+    </view>
+</view>
+
+<nav bgColor="#17305C" customerRouter="{{customerRouter}}" />

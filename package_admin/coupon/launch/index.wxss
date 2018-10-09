@@ -1,0 +1,125 @@
+.activity .header{
+	background: #efefef;
+	padding: 20rpx 0;
+	-webkit-display: flex;
+	display: flex;
+}
+.activity .header .item{
+	line-height: 70rpx;
+}
+.activity .header .item:first-of-type{
+	width: 140rpx;
+	text-indent: 30rpx;
+}
+.activity .header .item:nth-of-type(2){
+	width: 190rpx;
+	margin-left: -40rpx;
+}
+.activity .header .item:last-of-type{
+	padding-left: 10rpx;
+	padding-right: 30rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.controller{
+	font-size: 0;
+	text-align: center;
+}
+.controller .button{
+	font-size: 34rpx;
+	line-height: 88rpx;
+	border: solid #ff5400 1rpx;
+	border-radius: 10rpx;
+	padding: 0 110rpx;
+	margin-right: 20rpx;
+	display: inline-block;
+}
+.controller .button:last-of-type{
+	margin: 0;
+}
+.controller .button.fill{
+	color: #fff;
+	background: #ff5400;
+}
+.selector{
+	border-bottom: solid #e6e6e6 1rpx;
+	-webkit-display: flex;
+	display: flex;
+	position: relative;
+}
+.selector .item{
+	padding: 10rpx 0;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.selector .dropdown{
+	width: 100%;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 999;
+}
+.selector .dropdown .list{
+	font-size: 34rpx;
+	width: 100%;
+	line-height: 100rpx;
+	padding: 0 50rpx;
+	white-space: nowrap;
+	text-align: center;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+.selector .dropdown .list.active{
+	color: #ff5400;
+}
+.selector .dropdown .list:last-of-type{
+	margin-bottom: 30rpx;
+}
+.couponList{
+	background: #fff;
+	margin: 10rpx 0;
+	padding: 0 30rpx;
+}
+.couponList .coupon{
+	border-bottom: solid #eee 1rpx;
+	padding: 30rpx 0;
+}
+.couponList .coupon:last-of-type{
+	border: none;
+}
+.couponList .coupon .extend{
+	min-height: 50rpx;
+	position: relative;
+}
+.couponList .coupon .extend .left{
+	color: #999;
+	display: inline-block;
+}
+.couponList .coupon .extend .leftNum{
+	color: #ff5400;
+	font-weight: bold;
+	margin-left: 10rpx;
+	display: inline-block;
+}
+.couponList .coupon .extend .button{
+	min-width: 120rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	color: #fff;
+	background: #ff5400;
+	border-radius: 50rpx;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.couponList .coupon .extend .button.blue{
+	background: #3a6dc4;
+}
+.bottomer{
+	width: 100%;
+	height: 150rpx;
+}

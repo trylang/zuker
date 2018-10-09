@@ -1,0 +1,63 @@
+.header{
+	border-top: #f5f5f5 solid 10rpx;
+	background: #fff;
+	padding: 25rpx;
+}
+.header:first-of-type{
+	border: none;
+}
+.header .title{
+	font-size: 38rpx;
+	font-weight: bold;
+}
+.header .content{
+	padding: 20rpx;
+	position: relative;
+}
+.header .content image.status{
+	width: 135rpx;
+	height: 135rpx;
+	position: absolute;
+	right: 20rpx;
+	top: 30rpx;
+}
+.header .analysis{
+	-webkit-display: flex;
+	display: flex;
+}
+.header .analysis .col{
+	color: #ccc;
+	font-size: 36rpx;
+	line-height: 80rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.header .analysis .col view{
+	margin-left: 15rpx;
+	display: inline-block;
+}
+.header .reason{
+	font-size: 36rpx;
+	line-height: 60rpx;
+	padding: 15rpx 0 10rpx;
+}
+.fixed{
+	width: 100%;
+	-webkit-display: flex;
+	display: flex;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.fixed .button{
+	font-size: 36rpx;
+	background: #f5f5f5;
+	line-height: 120rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.fixed .button.red{
+	color: #fff;
+	background: #ff5400;
+}

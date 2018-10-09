@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"tab": "/components/tab/index",
+		"coupon": "/components/couponItem/index",
+		"coupon-analysis": "/components/couponItemAnalysis/index",
+		"fixed": "/components/fixedBar/index"
+	}
+}

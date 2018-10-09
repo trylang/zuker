@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"nav": "/components/mainNav/index",
+		"datepicker": "/components/datepicker/index"
+	}
+}

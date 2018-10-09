@@ -1,0 +1,17 @@
+.comm-fixed-bar{
+	width: 100%;
+	font-size: 36rpx;
+	line-height: 120rpx;
+	text-align: center;
+	-webkit-display: flex;
+	display: flex;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.comm-fixed-bar .button{
+	-webkit-flex: 1;
+	flex: 1;
+	color: #fff;
+	background: #ff5400;
+}

@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"alert": "/components/alert/index",
+		"title": "/components/title/index",
+		"fixed": "/components/fixedBar/index",
+		"coupon-append": "/components/couponLaunchAppend/index",
+		"coupon": "/components/couponItem/index"
+	}
+}

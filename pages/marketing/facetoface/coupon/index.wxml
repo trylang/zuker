@@ -1,0 +1,15 @@
+<navigator label="面对面赠券"></navigator>
+<view class="header">
+	<step data="{{['查询', '赠券', '完成']}}" index="{{-1+!!inputCode}}" />
+</view>
+<view class="body">
+	<view class="search">
+		<input type="number" confirm-type="search" placeholder="请输入会员卡号或手机号" placeholder-class="placeholder"
+         value="{{inputCode}}" focus="{{inputFocus}}" bindinput="inputHandler" bindconfirm="confirmHandler" />
+		<view class="clear" catchtap="clearHandler" hidden="{{!inputCode}}" />
+	</view>
+</view>
+<view class="footer">
+	<abutton title="查 询" disabled="{{!inputCode}}" bindtap="confirmHandler" />
+	<abutton title="扫 描" border="{{true}}" bindtap="scanHandler" />
+</view>

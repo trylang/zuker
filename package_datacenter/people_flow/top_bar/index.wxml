@@ -1,0 +1,7 @@
+<view class="header">
+    <view class="user">
+        <image class="user_icon" mode="aspectFill" src="../../../assets/compass-man-icon.png" />
+        <text class="user_name">zf@xddyc</text>
+    </view>
+    <view class="activity">鲜果时光_1F16</view>
+</view>

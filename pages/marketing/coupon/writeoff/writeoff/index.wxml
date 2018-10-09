@@ -1,0 +1,26 @@
+<navigator />
+<view class="header" wx:if="{{title||extend||id}}">
+	<step data="{{['选择查询类型', '查询信息', '验证信息与核销', '完成']}}" index="{{3}}" />
+</view>
+<view class="body" wx:if="{{title||extend||id}}">
+	<view class="success" />
+	<view class="title">核销成功</view>
+	<view class="coupon">
+		<view class="title">{{title}}</view>
+		<view class="extend">{{extend}}</view>
+		<view class="id normal">
+			<view class="label">券<view style="display: inline; opacity:0; filter: alpha(opacity=0);">券码</view>码:</view>
+			{{id}}
+		</view>
+		<view class="id normal" wx:for="{{info}}" wx:key="item.label">
+			<view class="label">{{item.label}}:</view>
+			{{item.value}}
+		</view>
+	</view>
+</view>
+<view class="footer" wx:if="{{title||extend||id}}">
+	<view class="writeoff">
+		<abutton title="返回首页" bindtap="homeHandler" />
+		<!-- <abutton title="继续核销" border="{{true}}" bindtap="scanHandler" /> -->
+	</view>
+</view>

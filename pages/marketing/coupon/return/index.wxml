@@ -1,0 +1,3 @@
+<route path="{{path}}">
+    <step data="{{['选择查询类型', '查询', '退券', '完成']}}" index="{{-1+!!inputCode}}" />
+</route>

@@ -1,0 +1,22 @@
+<navigator />
+<view class="form">
+	<view class="label" style="pointer-events:{{planModifyAble?'':'none'}}; opacity:{{planModifyAble?1:.6}}">* 计划完成日期</view>
+	<view class="formItem" style="pointer-events:{{planModifyAble?'':'none'}}; opacity:{{planModifyAble?1:.6}}">
+		<input type="text" value="{{planDate}}" disabled="{{true}}" bindtap="openPlanPickerHandler" placeholder="请选择计划完成日期" placeholder-style="color: #ccc;" />
+	</view>
+	<view style="width: 100%; position: relative;">
+		<datepicker id="planPicker" autoClose="{{true}}" bindclose="closePlanPickerHandler" />
+	</view>
+	<view class="label" style="pointer-events:{{planModifyAble?'':'none'}}; opacity:{{planModifyAble?1:.6}}">* 计划完成时间</view>
+	<view class="formItem" style="pointer-events:{{planModifyAble?'':'none'}}; opacity:{{planModifyAble?1:.6}}">
+		<picker mode="time" value="{{planTime}}" bindchange="planTimeHandler" style="width: 100%;">
+			<input type="text" value="{{planTime}}" disabled="{{true}}" placeholder="请选择计划完成时间" placeholder-style="color: #ccc;" />
+		</picker>
+	</view>
+	<view class="label">* 维修人员</view>
+	<view class="formItem" style="border-bottom: #ccc solid 1rpx;">
+		<select placeholder="请选择维修人员" placeholderColor="#ccc" placeholderAlign="left" list="{{workerList}}" id="workerSelect" style="width: 100%;" />
+	</view>
+	<view style="margin-top: 100rpx;" />
+	<abutton title="{{buttonText}}" bindtap="confirmHandler" wx:if="{{buttonText}}" />
+</view>

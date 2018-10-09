@@ -1,0 +1,11 @@
+<navigator />
+<tab data="{{['全部', '正常', '已失效']}}" index="{{searchIndex}}" bindchange="tabHandler" />
+<view class="couponList">
+	<view class="coupon" wx:for="{{couponList}}" wx:key="item" data-id="{{item.id}}" catchtap="goCouponInfoHandler">
+		<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" tagColor="{{item.tagColor}}" title="{{item.title}}" extend="{{item.extend}}">
+			<coupon-analysis data-id="{{item.id}}" extend="{{item.analysis}}" button="" />
+		</coupon>
+	</view>
+</view>
+<view class="bottomer" />
+<fixed title="创建优惠券" bindconfirm="createHandler" />

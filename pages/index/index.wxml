@@ -1,0 +1,45 @@
+<navigator>
+	<view class="headAddButton" bindtap="goCreateHandler">创建券</view>
+</navigator>
+<view class="header">
+	<swiper current="{{sliderIndex}}" circular="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{300}}" previous-margin="30rpx" next-margin="30rpx" bindchange="swiperHandler" class="carousel" style="height: 316rpx">
+		<swiper-item wx:for="{{slider}}" wx:key="index">
+			<view class="slider" bindtap="swiperTapHandler">
+				<view class="item">
+					<view class="title">{{item.title}}</view>
+					<view class="body">
+						<image mode="aspectFill" src="{{item.cover}}" />
+						<view class="detail">
+							<view>活动时间: {{item.start}} - {{item.end}}</view>
+							<view>所属应用: {{item.appName}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
+	<view class="indicator">
+		<view wx:for="{{slider}}" wx:key="index" class="{{index == sliderIndex?'active':''}}" />
+	</view>
+	<view class="quickNav">
+		<view class="item" wx:for="{{quickNav}}" wx:key="label" data-index="{{index}}" bindtap="quickNavHandler">
+			<image mode="aspectFill" src="{{item.icon}}" />
+			{{item.label}}
+		</view>
+	</view>
+</view>
+<view class="quickNav simple">
+	<view class="item" wx:for="{{simpleNav}}" wx:key="label" data-index="{{index}}" bindtap="simpleNavHandler">
+		<image mode="aspectFill" src="{{item.icon}}" />
+		{{item.label}}
+	</view>
+</view>
+<view class="couponList">
+	<title title="优惠券" extend="全部券" bindtap="couponHomeHandler" />
+	<view class="coupon" wx:for="{{couponList}}" wx:key="item" data-id="{{item.id}}" bindtap="couponInfoHandler">
+		<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" tagColor="{{item.tagColor}}" title="{{item.title}}" extend="{{item.extend}}">
+			<coupon-analysis data-id="{{item.id}}" extend="{{item.analysis}}" catchconfirm="couponLaunchHandler" />
+		</coupon>
+	</view>
+</view>
+<nav index="{{0}}" bindaction = "checkNavActionHandler" />

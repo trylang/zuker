@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"tab": "/components/tab/index",
+		"rate": "/components/rate/index",
+		"fixed": "/components/fixedBar/index"
+	}
+}

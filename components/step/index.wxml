@@ -1,0 +1,6 @@
+<view class="comm-step">
+	<view class="{{['item', $index<=index?'active':'']}}" wx:for="{{data}}" wx:key="item" wx:for-index="$index">
+		<view class="dot">{{$index + 1}}</view>
+		<view class="label">{{item}}</view>
+	</view>
+</view>

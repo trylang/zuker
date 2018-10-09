@@ -1,0 +1,62 @@
+.comm-alert{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+}
+.comm-alert .comm-black{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+
+.comm-alert .comm-container{
+	width: 600rpx;
+	background: #fff;
+	border-radius: 12rpx;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+.comm-alert .comm-container .header{
+	min-height: 40rpx;
+	line-height: 100rpx;
+	font-size: 34rpx;
+	font-weight: bold;
+	text-align: center;
+}
+.comm-alert .comm-container .body{
+	padding: 0 30rpx 40rpx;
+	text-align: center;
+}
+.comm-alert .comm-container .footer{
+	border-top: solid #efefef 1rpx;
+	line-height: 100rpx;
+	text-align: center;
+	-webkit-display: flex;
+	display: flex;
+}
+.comm-alert .comm-container .footer view{
+	border-right: solid #efefef 1rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.comm-alert .comm-container .footer view:last-of-type{
+	border-right: none;
+}
+.comm-alert .comm-container .footer view.cancel{
+	color: #999;
+}
+.comm-alert .comm-container .footer view.confirm{
+	color: #ff6e26;
+}

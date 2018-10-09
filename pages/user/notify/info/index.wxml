@@ -1,0 +1,11 @@
+<!--pages/user/notify/info/index.wxml-->
+<navigator />
+<view class="msgDetail">
+  <view class="msgTitle">{{info.title}}</view>
+  <view class="time">{{info.createTime}}</view>
+  <view class="content">{{info.content}}</view>
+  <view class="foot">
+  <view><text>业务来源：</text><text>{{info.businessTypeText}}</text></view>
+  <view><text>操作类型：</text><text>{{info.operationStateText}}</text></view>
+  </view>
+</view>

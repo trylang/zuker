@@ -1,0 +1,192 @@
+.comm-picker{
+	width: 100%;
+	position: relative;
+}
+.comm-picker .comm-black{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+.comm-picker .comm-picker-container{
+	background: #fff;
+	width: 100%;
+	border-radius: 10rpx;
+	padding: 20rpx 30rpx;
+	-webkit-box-shadow: 0 0 10rpx #ccc;
+	box-shadow: 0 0 10rpx #ccc;
+	position: absolute;
+	left: 0;
+	top: 10rpx;
+	z-index: 999;
+}
+.comm-picker .comm-picker-container .header,
+.comm-picker .comm-picker-container .week,
+.comm-picker .comm-picker-container .date{
+	-webkit-display: flex;
+	display: flex;
+}
+.comm-picker .comm-picker-container .header .item,
+.comm-picker .comm-picker-container .week .item,
+.comm-picker .comm-picker-container .date .item{
+	-webkit-flex: 1;
+	flex: 1;
+	line-height: 80rpx;
+	text-align: center;
+}
+.comm-picker .comm-picker-container .header .item{
+	font-size: 38rpx;
+	font-weight: bold;
+	position: relative;
+}
+
+.comm-picker .comm-picker-container .header .item.year:after{
+	content: '';
+	width: 0;
+	height: 0;
+	border: solid transparent 10rpx;
+	border-top: solid #ccc 10rpx;
+	-webkit-transform: translate(-50%, -25%);
+	transform: translate(-50%, -25%);
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 50%;
+}
+.comm-picker .comm-picker-container .header .item.year .black{
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+.comm-picker .comm-picker-container .header .item.year .list{
+	width: 300rpx;
+	width: 100%;
+	background: #fff;
+	border-radius: 10rpx;
+	padding: 10rpx 0;
+	-webkit-box-shadow: 0 0 10rpx #ccc;
+	box-shadow: 0 0 10rpx #ccc;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 999;
+}
+.comm-picker .comm-picker-container .header .item.year.active .black,
+.comm-picker .comm-picker-container .header .item.year.active .list{
+	display: block;
+}
+.comm-picker .comm-picker-container .header .item.year.active .list view{
+	font-size: 30rpx;
+	font-weight: normal;
+	line-height: 70rpx;
+}
+.comm-picker .comm-picker-container .header .item.year.active .list view.active{
+	color: #ff0000;
+	font-weight: bold;
+	background: #efefef;
+}
+.comm-picker .comm-picker-container .header .item.year.active:after{
+	border-top: solid #ff0000 10rpx;
+	-webkit-transform: translate(-50%, -75%) rotate(180deg);
+	transform: translate(-50%, -75%) rotate(180deg);
+}
+
+.comm-picker .comm-picker-container .header .item .arrow,
+.comm-picker .comm-picker-container .header .item .trigger{
+	width: 33%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.comm-picker .comm-picker-container .header .item .arrow:before{
+	content: '';
+	width: 12rpx;
+	height: 12rpx;
+	border-top: #999 solid 1rpx;
+	border-left: #999 solid 1rpx;
+	margin: 43.49% auto 0;
+	transform: rotate(-45deg);
+	display: block;
+}
+.comm-picker .comm-picker-container .header .item .arrow:last-of-type{
+	left: auto;
+	right: 0;
+	transform: scaleX(-1);
+}
+.comm-picker .comm-picker-container .header .item .trigger{
+	left: 33%;
+	opcity: 0;
+	filter: alpha(opcity = 0);
+}
+.comm-picker .comm-picker-container .week .item:first-of-type,
+.comm-picker .comm-picker-container .week .item:last-of-type{
+	color: #ff5400;
+}
+
+.comm-picker .comm-picker-container .dateBody{}
+.comm-picker .comm-picker-container .dateBody .weekDays{
+	font-size: 30rpx;
+	width: 100%;
+}
+
+.comm-picker .comm-picker-container .dateBody .date .item{
+	position: relative;
+}
+.comm-picker .comm-picker-container .dateBody .date .item.disabled{
+	color: #999;
+}
+.comm-picker .comm-picker-container .dateBody .date .item.range{
+	color: #999;
+	background: linear-gradient(0deg, transparent 15rpx, #efefef 15rpx, #efefef 60rpx, transparent 60rpx);
+}
+.comm-picker .comm-picker-container .dateBody .date .item.gray{
+	color: #fff;
+	background: radial-gradient(circle at center, #ccc 0, #ccc 25rpx, transparent 25rpx);
+}
+.comm-picker .comm-picker-container .dateBody .date .item.start{
+	color: #fff;
+	background: radial-gradient(circle at center, #17305c 0, #17305c 25rpx, transparent 25rpx);
+}
+.comm-picker .comm-picker-container .dateBody .date .item.start:after{
+	content: '起始';
+	font-size: 20rpx;
+	line-height: 20rpx;
+	color: #17305c;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -10rpx;
+	display: block;
+}
+.comm-picker .comm-picker-container .dateBody .date .item.end{
+	color: #fff;
+	background: radial-gradient(circle at center, #ff5400 0, #ff5400 25rpx, transparent 25rpx);
+}
+.comm-picker .comm-picker-container .dateBody .date .item.end:after{
+	content: '结束';
+	font-size: 20rpx;
+	line-height: 20rpx;
+	color: #ff5400;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -10rpx;
+	display: block;
+}
+.comm-picker .comm-picker-container .dateBody .date .item.selected{
+	color: #fff;
+	background: radial-gradient(circle at center, #ff5400 0, #ff5400 25rpx, transparent 25rpx);
+}

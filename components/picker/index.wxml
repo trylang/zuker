@@ -1,0 +1,6 @@
+<view class="comm-picker" hidden="{{!visible}}" bindtap="close">
+	<view class="item-container {{cancel?'cancel':''}}" catchtap="clickHandler">
+		<view class="item" wx:for="{{data}}" wx:key="item" data-index="{{index}}">{{item}}</view>
+		<view class="item" wx:if="{{cancel}}">{{cancel}}</view>
+	</view>
+</view>

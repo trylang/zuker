@@ -1,0 +1,12 @@
+<view class="comm-launch-append">
+	<view class="{{['prepend', data.selected?'selected':'']}}" catchtap="couponSelectHandler"></view>
+	<view class="body">
+		<view class="coupon">
+			<slot />
+		</view>
+	</view>
+	<view class="append">
+		投放量
+		<view class="{{['couponNum', data.append?'active':'']}}" catchtap="couponAppendHandler">{{data.append||data.input||'请输入'}}</view>
+	</view>
+</view>

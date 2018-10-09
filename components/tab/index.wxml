@@ -1,0 +1,8 @@
+<view class="comm-tab" style="background: {{bgColor}}">
+	<view wx-if="customerData.length=0" class="{{['item', $index==index?'active':'']}}" wx:for="{{data}}" wx:for-index="$index" wx:key="item" data-index="{{$index}}" catchtap="tapHandler">{{item}}</view>
+	<view wx-if="customerData.length>0" class="{{['item', $index==index?'active':'']}}"
+		wx:for="{{customerData}}" wx:for-index="$index" 
+		wx:key="item" data-index="{{$index}}" catchtap="tapHandler">
+		<text style="color: {{$index==index? item.fontActColor: item.fontColor}}">{{item.label}}</text>
+	</view>
+</view>

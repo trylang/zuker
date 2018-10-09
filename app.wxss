@@ -1,0 +1,16 @@
+/**app.wxss**/
+view,
+textarea{
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+page{
+	width: 750rpx;
+	font-size: 30rpx;
+	overflow-x: hidden;
+}
+
+/*.header{
+	background: #efefef;
+	padding: 32rpx 20rpx;
+}*/

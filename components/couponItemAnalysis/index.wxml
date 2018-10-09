@@ -1,0 +1,8 @@
+<view class="comm-coupon-item-analysis">
+	<view class="analysis">
+		<view wx:for="{{extend}}" wx:key="item"><view wx:if="{{item[1]}}">{{item[0]}}</view>{{item[1]||item[0]}}</view>
+	</view>
+	<view class="controller" wx:if="{{button}}">
+		<view class="button" catchtap="tapHandler">{{button}}</view>
+	</view>
+</view>

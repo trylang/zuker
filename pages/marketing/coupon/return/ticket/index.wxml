@@ -1,0 +1,15 @@
+<navigator label="扫码退券"></navigator>
+<view class="header">
+	<step data="{{['选择查询类型', '查询', '退券', '完成']}}" index="{{1}}" />
+</view>
+<view class="body">
+	<view class="search">
+		<input type="number" confirm-type="search" placeholder="请输入券码" placeholder-class="placeholder"
+         value="{{inputCode}}" focus="{{inputFocus}}" bindinput="inputHandler" bindconfirm="confirmHandler" />
+		<view class="clear" catchtap="clearHandler" hidden="{{!inputCode}}" />
+	</view>
+</view>
+<view class="footer">
+	<abutton title="查 询" disabled="{{!inputCode}}" bindtap="confirmHandler" />
+	<abutton title="扫 描" border="{{true}}" bindtap="scanHandler" />
+</view>

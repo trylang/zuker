@@ -1,0 +1,6 @@
+{
+    "usingComponents" : {
+        "route": "/components/qrcodeOrMember/index",
+        "step": "/components/step/index"
+    }
+}

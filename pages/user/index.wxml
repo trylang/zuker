@@ -1,0 +1,23 @@
+<navigator />
+<alert id="alert" bindconfirm="logout" />
+<view class="header">
+	<view class="info" bindtap="todetail">
+		<view class="row flex">
+			<image mode="aspectFill" src="{{avatar}}" />
+			<view class="col">
+				<view class="title">{{nick}}</view>
+				<view class="content">
+					ID: {{id}}
+					<view class="button" catchtap="logoutHandler">退出登录</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="nav" bindtap="nvaTo">
+	<view class="item" wx:for="{{nav}}" wx:key="item.label" id="{{item.token}}">
+		<image mode="aspectFill" src="{{item.icon}}" />
+		{{item.label}}
+	</view>
+</view>
+<nav index="{{isShop?4:(isMarket?2:1)}}" />

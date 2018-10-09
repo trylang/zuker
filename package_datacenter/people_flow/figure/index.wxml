@@ -1,0 +1,7 @@
+<navigator label="客流雷达"/>
+<topbar />
+<view class="container">
+    画像
+</view>
+
+<nav bgColor="#17305C" index="1" customerRouter="{{customerRouter}}" />

@@ -1,0 +1,25 @@
+.form{
+	padding: 30rpx;
+}
+.form .label{
+	color: #999;
+	font-size: 28rpx;
+	line-height: 50rpx;
+	margin-top: 20rpx;
+}
+.form .label:first-of-type{
+	margin: 0;
+}
+.form .formItem{
+	font-size: 36rpx;
+	line-height: 88rpx;
+	-webkit-display: flex;
+	display: flex;
+}
+.form .formItem input{
+	min-height: 88rpx;
+	line-height: 88rpx;
+	border-bottom: #ccc solid 1rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}

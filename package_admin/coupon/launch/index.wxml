@@ -1,0 +1,40 @@
+<navigator />
+<view class="activity">
+	<view class="header">
+		<view class="item">券来源:</view>
+		<view class="item">
+			<select placeholder="{{couponSearchUserObj.value||'全部'}}" list="{{couponSearchUserType}}" bindchange="dropdownUserHandler" />
+		</view>
+		<view class="item">
+			<header-input icon="../../../../../assets/icon_input_search.jpg" placeholder="请输入关键字..." bindsearch="searchInputHandler" />
+		</view>
+	</view>
+</view>
+<view class="selector">
+	<view class="item">
+		<select placeholder="{{couponSearchDate||'投放日期'}}" bindopen="launchPickerOpenHandler" bindclose="launchPickerCloseHandler" id="select1" />
+	</view>
+	<view class="item">
+		<select placeholder="{{couponSearchTypeObj.value||'审核状态'}}" bindopen="verifyOpenHandler" bindclose="verifyCloseHandler" id="select2" />
+	</view>
+	<view class="item" style="width: 33%; overflow: hidden;">
+		<select placeholder="{{couponSearchActivityObj.value||'参与活动'}}" bindopen="joinOpenHandler" bindclose="joinCloseHandler" id="select3" />
+	</view>
+	<view class="dropdown">
+		<datepicker id="launchpicker" simple="{{true}}" bindclose="dropdownPickerCloseHandler" />
+		<view class="{{['list', couponSearchDropId===item.id?'active':'']}}" wx:for="{{couponSearchDrop}}" wx:key="item" data-index="{{index}}" bindtap="dropdownHandler">{{item.value}}</view>
+	</view>
+</view>
+<view class="couponList">
+	<view class="coupon" wx:for="{{batchList}}" wx:key="item" data-index="{{index}}" bindtap="goBatchInfoHandler">
+		<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.title}}" extend="{{item.extend}}">
+			<view class="extend">
+				<view class="left">投放量</view><view class="leftNum">{{item.launchNum}}</view>
+				<view class="button" data-index="{{index}}" catchtap="batchOnHandler" wx:if="{{item.validateStatus==5}}">上架</view>
+				<view class="button blue" data-index="{{index}}" catchtap="batchOffHandler" wx:if="{{item.validateStatus==1||item.validateStatus==6}}">下架</view>
+			</view>
+		</coupon>
+	</view>
+</view>
+<view class="bottomer" />
+<nav router="{{router}}" />

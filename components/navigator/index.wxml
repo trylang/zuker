@@ -1,0 +1,10 @@
+<view class="comm-navigator {{ipx?'ipx':''}}">
+	<view class="navigator">
+		<view class="item">
+			<view class="backer" wx:if="{{back && appPages > 1}}" catchtap="backHandler" />
+			<slot />
+		</view>
+		<view class="item">{{title}}</view>
+		<view class="item"></view>
+	</view>
+</view>

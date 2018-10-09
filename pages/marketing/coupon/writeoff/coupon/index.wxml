@@ -1,0 +1,30 @@
+<navigator />
+<alert title="确认核销" id="writeoffAlert" bindconfirm="writeoffConfirmHandler">
+	<view style="color: #17305c;">券码: {{qrcodeFormat}}</view>
+</alert>
+<view class="header" wx:if="{{avatar||title||extend||id}}">
+	<step data="{{['选择查询类型', '查询信息', '验证信息与核销', '完成']}}" index="{{2}}" />
+</view>
+<view class="body" wx:if="{{avatar||title||extend||id}}">
+	<image mode="aspectFill" src="{{avatar}}" />
+	<view class="title">{{title}}</view>
+	<view class="extend">{{extend}}</view>
+	<view class="id">
+		<view class="label">券码:</view>
+		{{id}}
+	</view>
+</view>
+<view class="footer" wx:if="{{avatar||title||extend||id}}">
+	<view class="detail">
+		<view class="label">
+			<view class="text" wx:for="{{info}}" wx:key="item.label">{{item.label}}</view>
+		</view>
+		<view class="value">
+			<view class="text" wx:for="{{info}}" wx:key="item.label">{{item.value}}</view>
+		</view>
+	</view>
+	<view class="detailList" wx:for="{{infoExtend}}" wx:key="item">• {{item}}</view>
+	<view class="writeoff">
+		<abutton title="确认核销" disabled="{{writeoffState}}" bindtap="writeoffHandler" />
+	</view>
+</view>

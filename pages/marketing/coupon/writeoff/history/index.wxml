@@ -1,0 +1,35 @@
+<navigator />
+<view class="activity">
+	<view class="header">
+		<view class="item">
+			<header-input icon="../../../../../assets/icon_input_search.jpg" placeholder="请输入券码..." bindsearch="searchInputHandler" />
+		</view>
+	</view>
+</view>
+<view class="selector">
+	<view class="item">
+		<select placeholder="{{couponSearchDate||'核销时间'}}" bindopen="writeoffOpenHandler" bindclose="writeoffCloseHandler" id="select1" />
+	</view>
+	<view class="item">
+		<select placeholder="{{couponSearchCateObj.value||'券类型'}}" bindopen="cateOpenHandler" bindclose="cateCloseHandler" id="select2" />
+	</view>
+	<view class="item">
+		<select placeholder="{{couponSearchActivityObj.value||'活动'}}" bindopen="actOpenHandler" bindclose="actCloseHandler" id="select3" />
+	</view>
+	<view class="dropdown">
+		<datepicker id="datepicker" simple="{{true}}" bindclose="dropdownPickerCloseHandler" />
+		<view class="{{['list', couponSearchDropId==item.id?'active':'']}}" wx:for="{{couponSearchDrop}}" wx:key="item" data-index="{{index}}" bindtap="dropdownHandler">{{item.value}}</view>
+	</view>
+</view>
+<view class="couponList">
+	<view class="coupon" wx:for="{{couponList}}" wx:key="item" data-index="{{index}}" catchtap="goInfoHandler">
+		<view class="row">
+			<view class="title">{{item.title}}</view>
+			<view class="exntend">{{item.activityName}}</view>
+		</view>
+		<view class="row">
+			<view class="title">{{item.qrCode}}</view>
+			<view class="exntend">{{item.getTime}}</view>
+		</view>
+	</view>
+</view>

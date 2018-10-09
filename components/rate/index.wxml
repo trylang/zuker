@@ -1,0 +1,3 @@
+<view class="comm-rate" bindtap="starHandler">
+	<view wx:for="{{count}}" wx:key="item" class="{{index>aValue?'':'active'}}" data-index="{{index}}" />
+</view>

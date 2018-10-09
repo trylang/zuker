@@ -1,0 +1,9 @@
+<view class="{{['comm-select', active?'active':'']}}">
+	<view class="comm-black" catchtap="cancelHandler" />
+	<view class="header" catchtap="toogleHandler">
+		<view class="title" style="{{value?'':'color:'+placeholderColor+';text-align:'+placeholderAlign}};">{{value||placeholder}}</view>
+	</view>
+	<view class="body" catchtap="confirmHandler" wx:if="{{list.length}}">
+		<view wx:for="{{list.length?list:listPlacehoder}}" wx:key="item" data-id="{{item.id}}" data-value="{{item.value}}" class="{{(item.value==value && item.id==id)?'active':''}}">{{item.value}}</view>
+	</view>
+</view>

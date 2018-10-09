@@ -1,0 +1,38 @@
+.comm-tab{
+	width: 100%;
+	background: #fff;
+	-webkit-display: flex;
+	display: flex;
+}
+.comm-tab view{
+	font-size: 34rpx;
+	color: #9a9a9a;
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+	position: relative;
+}
+.comm-tab view:after{
+	content: '';
+	width: 0rpx;
+	height: 5rpx;
+	background: #17305c;
+	border-radius: 2rpx;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+	display: block;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+}
+
+.comm-tab view.active{
+	color: #17305c;
+}
+.comm-tab view.active:after{
+	width: 20rpx;
+}

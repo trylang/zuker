@@ -1,0 +1,126 @@
+.container {
+
+}
+.container .header {
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #F5F5F7;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 90rpx;
+}
+
+.container .header .router-item {
+  flex: 1;
+  color: #999;
+  font-size: 30rpx;
+}
+
+.container .header .router-item .router-img {
+  height: 32rpx;
+  width: 30rpx;
+  padding-right: 16rpx;
+  vertical-align: center;
+}
+
+.selector{
+	border-bottom: solid #e6e6e6 1rpx;
+	-webkit-display: flex;
+	display: flex;
+  position: relative;
+  padding-right: 40rpx;
+}
+.selector .item{
+	padding: 10rpx 0;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.selector .item-date {
+	flex: 1.5;
+}
+.selector .dropdown{
+	width: 100%;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 999;
+}
+.selector .dropdown .list{
+	font-size: 34rpx;
+	width: 100%;
+	line-height: 100rpx;
+	padding: 0 50rpx;
+	white-space: nowrap;
+	text-align: center;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+.selector .dropdown .list.active{
+	color: #ff5400;
+}
+.selector .dropdown .list:last-of-type{
+	margin-bottom: 30rpx;
+}
+.couponList{
+	background: #fff;
+	margin: 20rpx 0;
+	padding: 0 30rpx;
+}
+.couponList .coupon{
+	border-bottom: solid #eee 1rpx;
+	padding: 30rpx 0;
+}
+.couponList .coupon:last-of-type{
+	border: none;
+}
+
+.couponList .row {
+	display: flex;
+}
+
+.couponList .row .title {
+	color: #282828;
+	font-size: 34rpx;
+	font-weight: 600;
+	margin-bottom: 22rpx;
+}
+
+.couponList .coupon .row{
+	color: #999;
+  line-height: 50rpx;
+  display: flex;
+}
+
+.couponList .coupon .row .left {
+	color: #999;
+	flex: 1;
+	display: flex;
+}
+
+.couponList .coupon .list{
+	color: #999;
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+.couponList .coupon .list:first-of-type{
+	margin-top: 10rpx;
+}
+.couponList .coupon .list .left{
+  display: flex;
+	color: #999;
+}
+.couponList .coupon .row .leftDate,
+.couponList .coupon .list .leftDate{
+  color: #282828;
+  margin-left: 18rpx;
+}
+.couponList .coupon .row .leftNum,
+.couponList .coupon .list .leftNum{
+	color: #ff5400;
+	font-weight: bold;
+	margin-left: 18rpx;
+}

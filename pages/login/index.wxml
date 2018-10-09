@@ -1,0 +1,19 @@
+<view class="login-page">
+	<image mode="aspectFill" src="../../assets/login.jpg" class="login-bg" />
+	<view class="login-logo">
+		<image mode="aspectFill" src="../../assets/icon_logo.png" />
+		<view class="star" wx:for="{{effect}}" wx:key="item" style="left: {{item.x}}%; top: {{item.y}}%; transform: scale({{item.scale}}) rotate({{item.rotate}}deg);" />
+	</view>
+	<view class="login-form">
+		<view class="item">
+			<image mode="aspectFill" src="../../assets/icon_login_name.png" />
+			<input type="text" class="{{inputName?'':'alpha'}}" focus="{{nameFocus}}" maxlength="{{12}}" bindinput="inputNameHandler" bindconfirm="focusHandler" placeholder="请输入用户名" placeholder-style="color: #182a5a;" />
+		</view>
+		<view class="item">
+			<image mode="aspectFill" src="../../assets/icon_login_pwd.png" />
+			<input type="password" class="{{inputPassword?'':'alpha'}}" focus="{{passFocus}}" maxlength="{{12}}" bindinput="inputPwdHandler" bindconfirm="focusHandler" placeholder="请输入密码" placeholder-style="color: #182a5a;" />
+		</view>
+		<view class="forgot" bindtap="forgotHandler">忘记密码</view>
+		<view class="button" bindtap="login">登录</view>
+	</view>
+</view>

@@ -1,0 +1,60 @@
+<view class="comm-picker" hidden="{{!visible}}">
+	<view class="comm-black" bindtap="close" wx:if="{{!simple}}" />
+	<view class="comm-picker-container">
+		<view class="header">
+			<view class="{{['item year', yearActive?'active':'cc']}}" bindtap="yearOpenHandler">
+				{{year}}
+				<view class="black" catchtap="yearSelectHandler" />
+				<view class="list" catchtap="yearSelectHandler">
+					<view wx:for="{{yearList}}" wx:key="item" class="{{year==item?'active':''}}" data-index="{{index}}">{{item}}</view>
+				</view>
+			</view>
+			<view class="item">
+				{{month}}月
+				<div class="arrow" bindtap="monthPrevHandler"></div>
+				<div class="trigger"></div>
+				<div class="arrow" bindtap="monthNextHandler"></div>
+			</view>
+			<view class="item">
+				<view style="color: #ff5400; font-weight:normal;" catchtap="reset">重置</view>
+			</view>
+		</view>
+		<view class="week">
+			<view class="item">日</view>
+			<view class="item">一</view>
+			<view class="item">二</view>
+			<view class="item">三</view>
+			<view class="item">四</view>
+			<view class="item">五</view>
+			<view class="item">六</view>
+		</view>
+		<view class="dateBody" catchtap="dateClickHandler">
+			<swiper current="{{sliderIndex}}" duration="{{sliderDuration}}" bindanimationfinish="sliderHandler" style="height: 510rpx">
+				<swiper-item>
+					<view class="weekDays">
+						<view class="date" wx:for="{{weekDayPrev}}" wx:key="item">
+							<view wx:for="{{item}}" wx:for-item="aItem" wx:for-index="aIndex" wx:key="aItem" class="{{['item', aItem.disabled?'disabled':'', aItem.start?'start':'', aItem.end?'end':'', aItem.selected?'selected':'', aItem.gray?'gray':'', aItem.range?'range':'']}}" data-year="{{aItem.year}}" data-month="{{aItem.month}}" data-date="{{aItem.date}}">{{aItem.date}}</view>
+						</view>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="weekDays">
+						<view class="date" wx:for="{{weekDayCurrent}}" wx:key="item">
+							<view wx:for="{{item}}" wx:for-item="aItem" wx:for-index="aIndex" wx:key="aItem" class="{{['item', aItem.disabled?'disabled':'', aItem.start?'start':'', aItem.end?'end':'', aItem.selected?'selected':'', aItem.gray?'gray':'', aItem.range?'range':'']}}" data-year="{{aItem.year}}" data-month="{{aItem.month}}" data-date="{{aItem.date}}">{{aItem.date}}</view>
+						</view>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="weekDays">
+						<view class="date" wx:for="{{weekDayNext}}" wx:key="item">
+							<view wx:for="{{item}}" wx:for-item="aItem" wx:for-index="aIndex" wx:key="aItem" class="{{['item', aItem.disabled?'disabled':'', aItem.start?'start':'', aItem.end?'end':'', aItem.selected?'selected':'', aItem.gray?'gray':'', aItem.range?'range':'']}}" data-year="{{aItem.year}}" data-month="{{aItem.month}}" data-date="{{aItem.date}}">{{aItem.date}}</view>
+						</view>
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
+		<view class="footer">
+			<slot />
+		</view>
+	</view>
+</view>

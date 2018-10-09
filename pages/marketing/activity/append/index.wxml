@@ -1,0 +1,20 @@
+<navigator />
+<alert title="投放量" id="appendAlert" bindconfirm="couponAppendConfirmHandler">
+	<input type="number" confirm-type="done" value="{{appendNum}}" bindinput="couponAppendInputHandler" maxlength="8" placeholder="请输入整数" placeholder-class="appendPlaceholder" class="appendInput" />
+	<view>可投放量: {{couponLeft}}</view>
+</alert>
+<view class="couponList">
+	<title title="已选择活动: {{title}}" extend="" />
+	<view wx:for="{{couponList}}" wx:key="item" class="listItem">
+		<coupon-append data="{{item}}" data-index="{{index}}" data-id="{{item.id}}" bindconfirm="couponAppendHandler" bindselect="couponSelectHandler" bindunselect="couponUnSelectHandler">
+			<coupon size="{{100}}" cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" tagColor="{{item.tagColor}}" title="{{item.title}}" extend="{{item.extend}}">
+				<view class="left">券剩余量</view><view class="leftNum">{{item.leftNum}}</view>
+			</coupon>
+		</coupon-append>
+	</view>
+</view>
+<fixed title="确认投放" bindconfirm="confirmAppendHandler">
+	<view class="fixedBefore">
+		<view class="gray">合计:</view> {{appendTypes}}种优惠券 共 <view class="red">{{appendTotal}}</view> 张
+	</view>
+</fixed>

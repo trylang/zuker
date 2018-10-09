@@ -1,0 +1,26 @@
+<navigator />
+<view class="header">
+	<view class="title">{{titleType}}事项</view>
+	<view class="content">
+		<coupon-item cover="{{cover}}" type="{{type}}" tag="{{tag}}" title="{{title}}" extend="{{extend}}">
+			<view style="color:#999;display:inline-block;">投放量:</view><view style="color:#ff5400;font-size: 34rpx;font-weight: bold;margin-left:15rpx;display:inline-block;">{{launchNum}}</view>
+		</coupon-item>
+		<image mode="aspectFill" src="../../../../../assets/{{tagIcon}}" class="status" wx:if="{{tagIcon}}" />
+	</view>
+</view>
+<view class="header" wx:if="{{tag!='pending'}}">
+	<view class="title">{{tag!='reject'?'投放数据':'驳回理由'}}</view>
+	<view class="analysis" wx:if="{{tag!='reject'}}">
+		<view class="col">
+			领取量<view style="color: #ff5400">{{getNum}}</view>
+		</view>
+		<view class="col">
+			核销量<view style="color: #ff5400">{{writeoffNum}}</view>
+		</view>
+	</view>
+	<view class="reason" wx:if="{{tag=='reject'}}">{{rejectReason||'暂无原因!'}}</view>
+</view>
+<view class="header" style="padding-bottom: 0;">
+	<view class="title">优惠券详情</view>
+</view>
+<coupon-info swiper="{{false}}" couponId="{{couponId}}" />

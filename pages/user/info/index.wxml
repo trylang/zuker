@@ -1,0 +1,12 @@
+<navigator />
+<view class="header">
+	<image mode="aspectFill" src="{{avatar}}" />
+</view>
+<view class="detail">
+	<view class="label">
+		<view class="text" wx:for="{{info}}" wx:key="item.label">{{item.label}}</view>
+	</view>
+	<view class="value">
+		<view class="text" wx:for="{{info}}" wx:key="item.label">{{item.value}}</view>
+	</view>
+</view>

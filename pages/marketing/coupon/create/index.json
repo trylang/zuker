@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"coupon-html": "/components/couponHtml/index",
+		"datepicker": "/components/datepicker/index"
+	}
+}

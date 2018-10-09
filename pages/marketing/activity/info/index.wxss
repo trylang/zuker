@@ -1,0 +1,94 @@
+page{
+	background: #f5f5f5;
+}
+
+.header{
+	min-height: 320rpx;
+	position: relative;
+}
+.header:before{
+	content: '';
+	width: 50%;
+	height: 160rpx;
+	background: #17305c;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+	-webkit-transform-origin: left top;
+	transform-origin: left top;
+	-webkit-transform: scaleX(2);
+	transform: scaleX(2);
+	display: block;
+}
+.header .info{
+	width: 690rpx;
+	position: absolute;
+	left: 50%;
+	margin-left: -345rpx;
+	top: 40rpx;
+}
+.header .info .shadow{
+	background: #fff;
+	border-radius: 12rpx;
+	padding: 30rpx;
+	-webkit-box-shadow: 0 5rpx 30rpx rgba(23, 48, 92, .15);
+	box-shadow: 0 5rpx 30rpx rgba(23, 48, 92, .15);
+}
+.header .info .row.flex{
+	-webkit-display: flex;
+	display: flex;
+}
+.header .info .row.flex image{
+	width: 120rpx;
+	height: 120rpx;
+}
+.header .info .row.flex .col{
+	padding-left: 20rpx;
+	line-height: 45rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.header .info .row.flex .col .title{
+	font-size: 34rpx;
+	font-weight: bold;
+	line-height: 50rpx;
+}
+.header .info .row.detail{
+	color: #aaa;
+	line-height: 45rpx;
+	max-height: 230rpx;
+	padding-top: 30rpx;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.couponList{
+	margin: 30rpx -30rpx 0;
+	background: #fff;
+	padding: 0 30rpx;
+}
+.couponList .coupon{
+	border-bottom: solid #f8f8f8 1rpx;
+	padding: 30rpx 0;
+}
+.couponList .coupon:last-of-type{
+	border: none;
+}
+.bottomer{
+	width: 100%;
+	height: 280rpx;
+}
+
+
+.appendPlaceholder{
+	color: #ccc;
+}
+.appendInput{
+	width: 400rpx;
+	height: 100rpx;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f5f5f5;
+	border: solid #ccc 1rpx;
+	border-radius: 10rpx;
+	margin: 0 auto 30rpx;
+}

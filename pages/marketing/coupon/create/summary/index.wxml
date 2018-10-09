@@ -1,0 +1,10 @@
+<navigator />
+<view class="summary">
+	<view class="item" wx:for="{{category}}" wx:key="title" data-type="{{item.type}}" style="background: {{item.color}}" catchtap="createHandler">
+		<view class="icon" style="background: url({{item.icon}}) center no-repeat; background-size: 85rpx;" />
+		<view class="content">
+			{{item.title}}
+			<view class="detail">{{item.extend}}</view>
+		</view>
+	</view>
+</view>

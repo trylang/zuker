@@ -1,0 +1,34 @@
+<navigator />
+
+<view class="container">
+    <view class="sale-con"  wx:for="{{data_center}}" wx:key="key" wx:for-index="key" wx:for-item="item" hidden="{{true}}">
+        <view class="sale-header">
+            <text class="sale-title">{{item.title}}</text>
+            <text class="sale-date">{{item.date}}</text>
+            <!-- <view style="width: 100%; position: relative;">
+                <datepicker class="sale-date" mode="range" id="showPicker" autoClose="{{true}}" bindclose="closePickerHandler">
+                    <view class="controller">
+                        <view class="button" bindtap="showPickerResetHandler">重置</view>
+                        <view class="button fill" bindtap="showPickConfirmHandler">确定</view>
+                    </view>
+                </datepicker>
+            </view> -->
+        </view>
+        <view class="sale-body">
+            <view class="sale-item" wx:for="{{item.list}}" wx:key="key1" wx:for-index="key1" wx:for-item="item1">
+                <view class="item-val">{{item1}}</view>
+                <view class="item-label">{{key1}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="router" style="margin-top: 80rpx;">
+        <view class="router-item {{item.class}}" data-item="{{item}}" bindtap="toggleSelect" wx:for="{{router}}" wx:key="key" wx:for-item="item">
+            <text class="router-title">{{item.title}}</text>
+            <image class="router-img" src="{{item.imgSrc}}" mode="aspectFill" binderror="" bindload=""></image>
+            <image class="router-btn-img" src="{{item.btnSrc}}" mode="aspectFill" binderror="" bindload=""></image>
+        </view>
+    </view>
+</view>
+
+<nav index="1" />

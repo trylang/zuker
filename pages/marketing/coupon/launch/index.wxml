@@ -1,0 +1,12 @@
+<navigator />
+<tab data="{{['待审核', '投放中', '已驳回', '已结束']}}" index="{{searchIndex}}" bindchange="tabHandler" />
+<view class="couponList">
+	<view class="coupon" wx:for="{{batchList}}" wx:key="item" data-id="{{item.couponActivityId}}" catchtap="goBatchInfoHandler">
+		<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.title}}">
+			<view class="list" wx:for="{{item.extend}}" wx:for-item="sub" wx:key="{{sub}}">{{sub}}</view>
+			<view class="list">
+				<view class="left">投放量</view><view class="leftNum">{{item.launchNum}}</view>
+			</view>
+		</coupon>
+	</view>
+</view>

@@ -1,0 +1,30 @@
+<navigator />
+<view class="header">
+	<step data="{{['选择查询类型', '查询信息', '验证信息与核销', '完成']}}" index="{{2}}" />
+</view>
+<view class="body">
+	<image wx:if="{{customerInfo.icon}}" mode="aspectFill" src="{{customerInfo.icon}}" />
+	<view class="title">{{customerInfo.name}}</view>
+	<view class="id">
+		<view class="label">会员码:</view>
+		{{customerInfo.cardNo}}
+	</view>
+</view>
+<view class="footer">
+	<view class="notice">
+		<view class="text">{{couponList.length}}张可用优惠券</view>
+	</view>
+	<view class="couponList">
+		<view class="coupon" wx:for="{{couponList}}" wx:key="item">
+			<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.title}}">
+				<view class="detail">
+					<view class="info">
+						<view wx:for="{{item.extend}}" wx:for-item="$item" wx:key="$item">{{$item}}</view>
+					</view>
+					<view >{{$item}}</view>
+					<view class="button" data-qrCode="{{item.qrCode}}" bindtap="nextHandler">选择</view>
+				</view>
+			</coupon>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,51 @@
+.header{
+	border-top: #f5f5f5 solid 10rpx;
+	background: #fff;
+	padding: 25rpx;
+}
+.header:first-of-type{
+	border: none;
+}
+.header .title{
+	font-size: 38rpx;
+	font-weight: bold;
+}
+
+.form{
+	font-size: 32rpx;
+	line-height: 100rpx;
+	border-top: #f5f5f5 solid 10rpx;
+	padding: 0 40rpx;
+	-webkit-display: flex;
+	display: flex;
+	overflow: hidden;
+}
+.form .label{
+	color: #999;
+	min-width: 140rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.form .label .text{
+	border-bottom: solid transparent 1rpx;
+}
+.form .value{
+	-webkit-flex: 1;
+	flex: 1;
+}
+.form .value .text{
+	max-width: 500rpx;
+	text-indent: 30rpx;
+	border-bottom: solid #eee 1rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.form .value .text.extend{
+	line-height: 60rpx;
+	padding: 20rpx 0;
+	white-space: initial;
+	word-wrap: break-word;
+	word-break: break-all;
+}

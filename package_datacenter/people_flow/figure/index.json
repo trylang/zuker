@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"nav": "/components/mainNav/index",
+		"select": "/components/select/index",
+		"datepicker": "/components/datepicker/index",
+		"topbar": "../top_bar/index"
+	}
+}

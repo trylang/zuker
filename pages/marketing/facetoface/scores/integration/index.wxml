@@ -1,0 +1,32 @@
+<navigator label="面对面积分"/>
+<view class="header">
+	<step data="{{['查询', '确认身份', '为会员积分', '完成']}}" index="{{2}}" />
+</view>
+<view class="body">
+    <view class="figure">
+        <image mode="aspectFill" src="{{customerInfo.icon}}" />
+        <view class="figure-right">
+            <view class="figure-name">{{customerInfo.name}}</view>
+            为会员记录积分
+        </view>
+    </view>
+    <view class="input">
+        <view class="input-icon">￥</view>
+        <input class="input-text" type="digit" focus="true" data-max="999999" bindinput="inputHandler" value="{{amount}}" maxlength="{{15}}" data-key="title"
+        placeholder="请输入消费金额" placeholder-style="color: #ccc; font-size: 40rpx;" />
+    </view>
+    <view class="upload">
+        <view class="desc">拍照或上传会员的小票图片 <view class="mark">（至多三张）</view></view>
+        <view class="formItem multiline">
+		<view class="image" wx:if="{{slider.length<1}}" data-type="slider" data-index="{{0}}" data-size="2048" bindtap="chooseImageHandler">(必传)</view>
+		<view class="image none" wx:for="{{slider}}" wx:key="index">
+			<image mode="aspectFill" src="{{item.imgUrl}}" style="width: 100%; height: 100%;" />
+			<view class="delete" data-index="{{index}}" bindtap="sliderDeleteHandler" />
+		</view>
+		<view class="image" wx:if="{{slider.length > 0 && slider.length < 3}}" data-type="slider" data-index="{{slider.length}}" data-size="2048" bindtap="chooseImageHandler" />
+	</view>
+    </view>
+</view>
+<view class="footer">
+	<abutton title="下一步" disabled="{{slider.length<1}}" bindtap="nextHandler" />
+</view>

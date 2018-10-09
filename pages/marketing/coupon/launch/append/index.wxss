@@ -1,0 +1,130 @@
+.header{
+	color: #fff;
+	background: #17305c;
+	padding: 20rpx 50rpx;
+}
+.header .title{
+	font-size: 40rpx;
+}
+.header .tag{
+	font-size: 24rpx;
+	width: 32rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	background: #ff5400;
+	margin-right: 5rpx;
+	margin-top: -5rpx;
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	overflow: hidden;
+}
+.header .tag.blue{
+	background: #3a6dc4;
+}
+.header .extend{
+	line-height: 60rpx;
+}
+.header .extend .label{
+	color: #ccc;
+	margin-left: 20rpx;
+	display: inline-block;
+}
+.header .extend .label:first-of-type{
+	margin-left: 0;
+}
+.actList{
+	background: #fff;
+	padding: 0 30rpx 150rpx;
+}
+.actList .launchItem{
+	padding: 30rpx 0;
+	border-bottom: #efefef solid 1rpx;
+	position: relative;
+}
+.actList .launchItem .analysis{
+	color: #ccc;
+	width: 440rpx;
+	line-height: 80rpx;
+	position: absolute;
+	left: 75rpx;
+	bottom: 0;
+}
+.actList .launchItem .analysis view{
+	font-weight: bold;
+	padding: 0 5rpx;
+	margin-right: 15rpx;
+	display: inline-block;
+}
+.actList .launchItem .analysis view:last-of-type{
+	margin-right: 0;
+}
+.actList .launchItem .analysis .black{
+	color: #000;
+}
+.actList .launchItem .analysis .red{
+	color: #ff5400;
+}
+.actList .left{
+	color: #999;
+	display: inline-block;
+}
+.actList .leftNum{
+	color: #ff5400;
+	font-weight: bold;
+	margin-left: 10rpx;
+	display: inline-block;
+}
+.actList .item .append{
+	line-height: 70rpx;
+	padding-left: 35rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.actList .item .append .couponNum{
+	color: #ccc;
+	height: 100rpx;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f5f5f5;
+	border-radius: 10rpx;
+}
+.actList .item .append .couponNum.active{
+	color: #000;
+}
+.actList .coupon{
+	border-bottom: solid #f8f8f8 1rpx;
+	padding: 30rpx 0;
+}
+.actList .coupon:last-of-type{
+	border: none;
+}
+
+.fixedBefore{
+	width: 510rpx;
+	background: #f5f5f7;
+}
+.fixedBefore .gray{
+	color: #999;
+	display: inline-block;
+}
+.fixedBefore .red{
+	color: #ff5400;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.appendPlaceholder{
+	color: #ccc;
+}
+.appendInput{
+	width: 400rpx;
+	height: 100rpx;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f5f5f5;
+	border: solid #ccc 1rpx;
+	border-radius: 10rpx;
+	margin: 0 auto 30rpx;
+}

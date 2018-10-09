@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"step": "/components/step/index",
+        "abutton": "/components/button/index"
+	}
+}

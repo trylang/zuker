@@ -1,0 +1,275 @@
+.fixArea{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .3);
+	padding: 30rpx 10rpx;
+	display: none;
+	position: fixed;
+	left: 1000rpx;
+	top: 135rpx;
+	z-index: 99;
+}
+.fixArea.ipx{
+	top: 195rpx;
+}
+.fixArea.open{
+	left: 0rpx;
+	display: block;
+}
+.fixArea textarea{
+	width:100%;
+	height:450rpx;
+	background: #fff;
+	border: #ccc solid 1rpx;
+	border-radius: 12rpx;
+	padding: 10rpx;
+	font-size: 36rpx;
+	line-height: 50rpx;
+	min-height: 88rpx;
+	margin: 0 auto;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.fixArea .button{
+	font-size: 36rpx;
+	color: #fff;
+	width: 100%;
+	line-height: 80rpx;
+	background: #ff5400;
+	border-radius: 12rpx;
+	text-align: center;
+	margin: 20rpx 0;
+}
+
+.form{
+	padding: 30rpx;
+}
+.form.open{
+}
+.form .formItem{
+	font-size: 36rpx;
+	line-height: 88rpx;
+	-webkit-display: flex;
+	display: flex;
+}
+.form .formItem .flex,
+.form .formItem input{
+	min-height: 88rpx;
+	line-height: 88rpx;
+	border-bottom: #ccc solid 1rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.form .formItem .textarea{
+	font-size: 36rpx;
+	line-height: 70rpx;
+	min-height: 88rpx;
+	width: 100%;
+	border-bottom: #ccc solid 1rpx;
+	padding-bottom: 20rpx;
+	word-wrap: break-word;
+	word-break: break-all;
+	display: inline-block;
+}
+.form .formItem .textareaHover{
+	background: #ccc;
+}
+
+.controller{
+	width: 100%;
+	font-size: 0;
+	text-align: center;
+}
+.controller .button{
+	font-size: 34rpx;
+	line-height: 88rpx;
+	border: solid #ff5400 1rpx;
+	border-radius: 10rpx;
+	padding: 0 110rpx;
+	margin-right: 20rpx;
+	display: inline-block;
+}
+.controller .button:last-of-type{
+	margin: 0;
+}
+.controller .button.fill{
+	color: #fff;
+	background: #ff5400;
+}
+.form .formItem view.label{
+	min-width: 210rpx;
+	position: relative;
+}
+.form .formItem view.label:before{
+	content: '*';
+	color: #ff5400;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	display: inline-block;
+}
+.form .formItem view.label.radio:before{
+	display: none;
+}
+.form .formItem view.label.radio view{
+	width: 40rpx;
+	height: 40rpx;
+	border-radius: 50%;
+	border: #ff5400 solid 1rpx;
+	margin-right: 10rpx;
+	margin-top: -10rpx;
+	vertical-align: middle;
+	display: inline-block;
+}
+.form .formItem view.label.radio view.selected{
+	background: #ff5400;
+	position: relative;
+}
+.form .formItem view.label.radio view.selected:before{
+	content: '';
+	width: 10rpx;
+	height: 20rpx;
+	border-right: #fff solid 3rpx;
+	border-bottom: #fff solid 3rpx;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -5rpx;
+	top: 50%;
+	margin-top: -13rpx;
+}
+.form .formItem.require view.label:before,
+.form .formItem.required view.label:before{
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+.form .formItem .delete{
+	width: 60rpx;
+	height: 60rpx;
+	background-color: rgba(0, 0, 0, .5);
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAj5JREFUSA3NVr1KA0EYzMWYRgJCYkQLLQwodhZi7UsIdlYpxFKfIrXa+gq+g5WNhWBlI4JiTIwoIip6znfZOW43695tcgEXJrff38zut8vlgkLKCMOwgZRySpoZ/gyC4Np0ZrYh2gSGHU2XUMkVRGxexY/wfEzJZXgGk12AtfRrzzRhJh+idVc0XE+0ZxVxEXaOojM6xmC0Y6yyDo2aRYe+TeQsWeI214Jy1tTuzZwOutcOEJxGpA1Mmhljsr/AWy9B/RniezB4GXYwlwvSAqaANWAC8BnfSL4A3oADQC7mCSDjTjT708QvFnEKfCRcI02FSzhNEtvl6iKpjOSKmexrKw55+QinNmzCHZXBi6UVeBrkIGdc/q+E2ZZqvLzhJ+QgZ8yUecc4ryLQAlbiajURn4qZfLm0ehk6+8CWKax8EpOc5PASZlvYJhIFamLuStz0MYc1XsK8gSwiyTBPLp6biTm40tiByRPwA+QhLBzCJZzaGBDG60wSe0Bewj3F6RZWUWkN26QVeBrCMdBm4RjYsSKWc85rx7wzirr/cAnntWMvYWmP+Ufxqpb8oi29b9DHnAJeKBXhAKyt/uubi6uUdkdkuCC3INuAfQmY4xiOM8lJBHhU5EqE3GcsiSyOikB8DrxrDDDEJzHDz1ovYbanapD5mKwll1brulySyFVrRRkN1lp3nHbG2zjXRkYhM21dOazC5ks9yoXYHCY3wKhfnvJFuYjzv4+IEz9WYYlDfBYPnlOixGvaheiDreIX5+vgro/Mh18AAAAASUVORK5CYII=);
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: 40rpx;
+	background-size: 40rpx;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.form .formItem .delete.transparent{
+	background-color: transparent;
+	background-image: url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMxaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ0OUJBMzFGOUNDRjExRThBRkMzRUFFMEZEQjJGQTdCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ0OUJBMzIwOUNDRjExRThBRkMzRUFFMEZEQjJGQTdCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDQ5QkEzMUQ5Q0NGMTFFOEFGQzNFQUUwRkRCMkZBN0IiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDQ5QkEzMUU5Q0NGMTFFOEFGQzNFQUUwRkRCMkZBN0IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAACAgICAgICAgICAwICAgMEAwICAwQFBAQEBAQFBgUFBQUFBQYGBwcIBwcGCQkKCgkJDAwMDAwMDAwMDAwMDAwMAQMDAwUEBQkGBgkNCwkLDQ8ODg4ODw8MDAwMDA8PDAwMDAwMDwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAeAB4DAREAAhEBAxEB/8QAbgAAAwADAQAAAAAAAAAAAAAABAYHAQIDCQEBAAAAAAAAAAAAAAAAAAAAABAAAAUDAwMBAw0AAAAAAAAAAQIDBAUREgYAIRMxFAcVUSMWYYGxwbMkdMTUVZUnKBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9oMn8t4lGhLwgvJFCcKm7atEyRz2pnCRDAPEcEaGtEK3FGlN600EKgMi8dmg4k2QZfnZJ0WiIy5UnUpYDmwOUC2gIUurSmgLHMMOjJ/EXuL5LmT0qEqUZ5u+UknKQsuFUD+5OUbxvt2AB0F0b+ZcBdRz+WSkHoxsagVw6eGjnpU+MyxG4CUwogBh5FChQN+o9AGgYzv7vmHiaQ6cc27Z1/FsFy0+e3QPSc9HKz7rGiHOMq0YpSKydo2cCyh0iiBugjcmNQ0AaeTRz5tlBmKhzK4uss0kbyiUCrJIFXG0R6hQ4b6CLenf5m7am/wz3n5mv16B78pe7L49d9O0zWIExvYVYVW4/a6ApmyeF8tzkgZqqVgpi7BFN6JDcRlSu3BhIB6UEwBuIVroFRNN5EY757fOmyrUqj2VdMjqkMQFSBGJWnIIgFwCIUqG1dAyenf0t6Tbv8FdrT5fTrPp0G3ltAV8VbFReNmb8k1FKRJ3YLcR3RHaYppmFBNU4X9K209tA30HLvfM37BiX8g8/T6BUzpXyo7w7JW0ywxaKiV49cklJJvHypkUBKPIcCFamE1C12AB0FhsZfDPHzh6d6Zb3No04eGl9tK0t3pTQf/Z);
+}
+.form .formItem.multiline{
+	font-size: 0;
+	-webkit-display: block;
+	display: block;
+}
+.form .formItem.multiline .image{
+	color: #999;
+	font-size: 26rpx;
+	width: 210rpx;
+	height: 210rpx;
+	background: #f5f5f7;
+	border: #f2f2f2 solid 1rpx;
+	padding-top: 120rpx;
+	margin-right: 20rpx;
+	margin-bottom: 20rpx;
+	vertical-align: top;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+.form .formItem.multiline .image:before,
+.form .formItem.multiline .image:after{
+	content: '';
+	background: #ccc;
+	border-radius: 2rpx;
+	display: block;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.form .formItem.multiline .image:before{
+	width: 4rpx;
+	height: 40rpx;
+}
+.form .formItem.multiline .image:after{
+	width: 40rpx;
+	height: 4rpx;
+}
+.form .formItem.multiline .image:nth-of-type(3n){
+	margin-right: 0;
+}
+.form .formItem.multiline .image.none{
+	padding: 0;
+}
+.form .formItem.multiline .image.none:before,
+.form .formItem.multiline .image.none:after{
+	display: none;
+}
+.form .formItem.instrument{
+	position: relative;
+}
+.form .formItem.instrument .delete{
+	right: 0;
+	top: 50%;
+	margin-top: -30rpx;
+	z-index: 99;
+}
+.form .formItem.instrument.bigPic .upload{
+	color: #ccc;
+	background: #f5f5f7;
+	width: 100%;
+	height: 235rpx;
+	line-height: 40rpx;
+	text-align: center;
+}
+.form .formItem.instrument.bigPic .upload image{
+	width: 84rpx;
+	height: 84rpx;
+	margin: 45rpx auto 30rpx;
+	display: block;
+}
+.form .formItem.instrument.bigPic .delete{
+	top: 0;
+	margin-top: 0;
+}
+.form .formItem .appendHtmlButton{
+	color: #999;
+	padding: 0 20rpx;
+	line-height: 50rpx;
+	border: #999 solid 1rpx;
+	border-radius: 50rpx;
+	margin-right: 30rpx;
+}
+.form .formItem .appendHtmlButton.active{
+	color: #ff5400;
+	border: #ff5400 solid 1rpx;
+}
+.fixed{
+	width: 100%;
+	-webkit-display: flex;
+	display: flex;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+}
+.fixed .button{
+	color: #fff;
+	font-size: 36rpx;
+	background: #ccc;
+	line-height: 120rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.fixed .button.red{
+	color: #fff;
+	background: #ff5400;
+}
+

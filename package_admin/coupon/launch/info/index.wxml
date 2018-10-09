@@ -1,0 +1,40 @@
+<navigator />
+<alert id="reject" confirm="驳回" bindconfirm="rejectConfirmHandler">
+	<view style="position:relative;">
+		<textarea type="textarea" value="{{inputReason}}" maxlength="50" fixed="{{true}}" style="width: 100%;font-size: 36rpx;background: #f5f5f5;border: #ccc solid 1rpx;border-radius: 12rpx;padding: 20rpx;line-height: 50rpx;text-align: left;" placeholder-style="color: #ccc;" placeholder="请填写驳回原因" bindinput="inputReasonHandler" />
+		<view style="color: #ccc;position: absolute;right:30rpx;bottom: 20rpx;">{{inputReason.length}}/50</view>
+	</view>
+	<view style="font-size: 28rpx; color: #ccc; line-height: 50rpx;">* 驳回原因为必填项</view>
+</alert>
+<alert id="resolve" confirm="审核通过" bindconfirm="resolveConfirmHandler">
+	<view style="color:#ff5400;">注意: 当前券投放申请使用了对应活动的"快速审核规则".</view>
+</alert>
+<view class="header">
+	<view class="title">{{titleType}}事项</view>
+	<view class="content">
+		<coupon-item cover="{{cover}}" type="{{type}}" tag="{{tag}}" title="{{title}}" extend="{{extend}}">
+			<view style="color:#999;display:inline-block;">投放量:</view><view style="color:#ff5400;font-size: 34rpx;font-weight: bold;margin-left:15rpx;display:inline-block;">{{launchNum}}</view>
+		</coupon-item>
+		<image mode="aspectFill" src="../../../../assets/{{tagIcon}}" class="status" wx:if="{{tagIcon}}" />
+	</view>
+</view>
+<view class="header" wx:if="{{tag!='pending'}}">
+	<view class="title">{{tag!='reject'?'投放数据':'驳回理由'}}</view>
+	<view class="analysis" wx:if="{{tag!='reject'}}">
+		<view class="col">
+			领取量<view style="color: #ff5400">{{getNum}}</view>
+		</view>
+		<view class="col">
+			核销量<view style="color: #ff5400">{{writeoffNum}}</view>
+		</view>
+	</view>
+	<view class="reason" wx:if="{{tag=='reject'}}">{{rejectReason||'暂无原因!'}}</view>
+</view>
+<view class="header" style="padding-bottom: 0;">
+	<view class="title">优惠券详情</view>
+</view>
+<coupon-info swiper="{{false}}" couponId="{{couponId}}" />
+<view class="fixed" wx:if="{{validateStatus===0}}">
+	<view class="button" bindtap="rejectHandler">驳回</view>
+	<view class="button red" bindtap="resolveHandler">同意</view>
+</view>

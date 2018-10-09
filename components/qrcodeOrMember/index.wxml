@@ -1,0 +1,17 @@
+<navigator :label="{{navLabel}}"></navigator>
+<view class="header">
+    <slot></slot>
+</view>
+
+<view class="body">
+    <text class="select-title">请选择查询类型</text>
+    <view class="select">
+        <view class="select-item" style="background:{{item.bgColor}}" data-item="{{item}}" bindtap="toggleSelect" wx:for="{{selects}}" wx:key="item">
+            <image class="img" mode="aspectFill" src="{{item.imgSrc}}"/>
+            <view class="item">
+                <text class="title">{{item.title}}</text> 
+                <text class="desc">{{item.desc}}</text> 
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<navigator />
+<alert id="modifyAlert" cancel="" />
+<coupon-info swiper="{{true}}" couponId="{{couponId}}" id="couponInfo" bindeditable="editalbeHandler" />
+<view class="fixed">
+	<view class="button {{editAble?'':'disabled'}}" bindtap="modifyHandler">编辑券</view>
+	<view class="button red" bindtap="launchHandler">券投放详情</view>
+</view>

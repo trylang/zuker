@@ -1,0 +1,22 @@
+<navigator />
+<tab data="{{menu}}" index="{{menuIndex}}" bindchange="tabHandler" />
+<view class="list">
+	<view class="item" wx:for="{{dataList[menuIndex].list}}" wx:key="item" data-index="{{index}}" catchtap="goInfoHandler">
+		<image mode="aspectFill" src="../../../assets/icon_estate_repair.jpg" />
+		<view class="container">
+			<view class="title">{{item.title}}</view>
+			<view class="tag">
+				<view wx:for="{{item.tags}}" wx:for-item="t" wx:key="t" class="{{t.class}}">{{t.value}}</view>
+				<view class="star" wx:if="{{item.stateRate}}">
+					<rate value="{{item.rateScore - 1}}" />
+				</view>
+				<view class="score" wx:if="{{item.stateRate}}">{{item.rateScore}} 分</view>
+			</view>
+			<view class="time">{{item.time}}</view>
+			<view class="time">{{item.floor?'楼层: '+item.floor:''}} {{item.shopName||''}}</view>
+			<view class="time">{{item.timeDesc}}</view>
+		</view>
+	</view>
+</view>
+<view class="bottomer" wx:if="{{createAble}}" />
+<fixed title="新建报修" bindconfirm="createHandler" wx:if="{{createAble}}" />

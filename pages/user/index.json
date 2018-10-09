@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"alert": "/components/alert/index",
+		"nav": "/components/mainNav/index"
+	}
+}

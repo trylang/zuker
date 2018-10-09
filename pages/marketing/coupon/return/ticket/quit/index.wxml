@@ -1,0 +1,27 @@
+<navigator label="扫码退券"></navigator>
+<view class="header">
+	<step data="{{['选择查询类型', '查询', '退券', '完成']}}" index="{{2}}" />
+</view>
+<view class="body">
+	<image wx:if="{{avatar}}" mode="aspectFill" src="{{avatar}}" />
+	<view class="title">{{title}}</view>
+	<view class="id">
+		<view class="label">{{extend}}</view>
+    </view>
+    <view class="id">
+		<view class="label">券码</view>
+		{{id}}
+    </view>
+    <view class="coupon">
+		<view class="id normal" wx:for="{{info}}" wx:key="key" wx:for-index="key" wx:for-item="item">
+			<view class="label">{{item.label}}</view>
+			{{item.value}}
+        </view>
+        <view class="id normal explain" wx:key="item"  wx:for="{{infoExtend}}">
+						<text class="explain-item">• {{item}}</text>
+        </view>
+	</view>
+</view>
+<view class="footer">
+    <abutton title="确认退券" bindtap="nextHandler" />
+</view>

@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"tab": "/components/tab/index",
+		"coupon": "/components/couponItem/index"
+	}
+}

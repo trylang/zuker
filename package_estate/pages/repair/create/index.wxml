@@ -1,0 +1,35 @@
+<navigator />
+<view class="form">
+	<view class="label">* 报修标题</view>
+	<view class="formItem">
+		<input type="text" value="{{title}}" maxlength="{{15}}" bindinput="titleHandler" placeholder="请输入标题内容" placeholder-style="color: #ccc;" />
+	</view>
+	<view class="label">* 所属建筑</view>
+	<view class="formItem" style="border-bottom: #ccc solid 1rpx;">
+		<select placeholder="请选择所属建筑" placeholderColor="#ccc" placeholderAlign="left" list="{{buildList}}" id="selectBuild" bindopen="hideDetailHandler" bindclose="buildCloseHandler" style="width: 100%;" />
+	</view>
+	<view class="label">* 所在楼层</view>
+	<view class="formItem" style="border-bottom: #ccc solid 1rpx;">
+		<select placeholder="请选择所在楼层" placeholderColor="#ccc" placeholderAlign="left" list="{{floorList}}"  id="selectFloor" bindopen="hideDetailHandler" bindclose="showDetailHandler" style="width: 100%;" />
+	</view>
+	<view class="label">* 报修类型</view>
+	<view class="formItem" style="border-bottom: #ccc solid 1rpx;">
+		<select placeholder="请选择报修类型" placeholderColor="#ccc" placeholderAlign="left" list="{{repairTypeList}}" id="selectType" bindopen="hideDetailHandler" bindclose="showDetailHandler" style="width: 100%; position: relative; z-index: 99;" />
+	</view>
+	<view class="label">* 报修内容</view>
+	<view class="formItem">
+		<textarea wx:if="{{!hideDetail}}" value="{{detail}}" placeholder="请输入报修内容" placeholder-style="color: #ccc; line-height: 88rpx;" bindinput="detailHandler" maxlength="{{200}}" style="width: 100%; height: 200rpx; line-height: 50rpx; background: #f7f7f7; border-radius: 12rpx; padding: 20rpx; " />
+		<view wx:if="{{hideDetail}}" style="width: 100%; height: 200rpx; line-height: 50rpx; background: #f7f7f7; border-radius: 12rpx; padding: 20rpx; color:{{hideDetail?'#ccc':''}}">{{detail||'请输入报修内容'}}</view>
+	</view>
+	<view style="width: 100%;color: #ccc; text-align: right;">{{detail.length||0}}/100</view>
+	<view class="label">* 上传照片<view style="color: #ccc; font-size: 28rpx; margin-left: 10rpx; display: inline-block;">(限传4张,每张大小不超过2Mb)</view></view>
+	<view class="formItem multiline">
+		<view class="image none" wx:for="{{slider}}" wx:key="index">
+			<image mode="aspectFill" src="{{item.img}}" style="width: 100%; height: 100%;" />
+			<view class="delete" data-index="{{index}}" bindtap="sliderDeleteHandler" />
+		</view>
+		<view class="image" wx:if="{{slider.length < 4}}" data-type="slider" data-index="{{slider.length}}" data-size="2048" bindtap="chooseImageHandler" />
+	</view>
+	<view style="margin-top: 50rpx;" />
+	<abutton title="提交" bindtap="confirmHandler" />
+</view>

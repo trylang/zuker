@@ -1,0 +1,23 @@
+<navigator label="面对面积分"/>
+<view class="header">
+	<step data="{{['查询', '确认身份', '为会员积分', '完成']}}" index="{{1}}" />
+</view>
+<view class="body">
+	<image wx:if="{{customerInfo.icon}}" mode="aspectFill" src="{{customerInfo.icon}}" />
+	<view class="title">{{customerInfo.name}}</view>
+	<view class="id">
+		<view class="label">会员码</view>
+		{{customerInfo.cardNo}}
+	</view>
+	<view class="id">
+		<view class="label">手机号码</view>
+		{{customerInfo.mobile}}
+	</view>
+	<view class="id name">
+		<view class="label">积分发生商户</view>
+		{{customerInfo.shopName}}
+	</view>
+</view>
+<view class="footer">
+	<abutton title="确认并继续" bindtap="nextHandler" />
+</view>

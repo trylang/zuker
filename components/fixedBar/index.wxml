@@ -1,0 +1,4 @@
+<view class="comm-fixed-bar">
+	<slot />
+	<view class="button" catchtap="tapHandler" wx:if="{{title}}">{{title}}</view>
+</view>

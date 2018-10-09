@@ -1,0 +1,32 @@
+<view class="comm-coupon-info">
+	<view class="banner">
+		<swiper circular="{{true}}" indicator-dots="{{true}}" indicator-color="#e5e5e5" indicator-active-color="#ff5400" autoplay="{{true}}" interval="{{3000}}" duration="{{300}}" style="height: 750rpx" wx:if="{{swiper}}">
+			<swiper-item wx:for="{{pics}}" wx:key="index">
+				<image mode="aspectFill" src="{{item}}" />
+			</swiper-item>
+		</swiper>
+		<view wx:if="{{!swiper}}">
+			<view class="title">优惠券图片</view>
+			<image mode="aspectFill" wx:for="{{pics}}" wx:key="index" src="{{item}}" class="expand" />
+		</view>
+	</view>
+	<view class="form">
+		<view class="label">
+			<view class="text" wx:for="{{detail}}" wx:key="item.label">{{item.label}}</view>
+			<view class="text extend" wx:if="{{detailExtend.value&&detailExtend.value.length}}">{{detailExtend.label}}</view>
+		</view>
+		<view class="value">
+			<view class="text" wx:for="{{detail}}" wx:key="item.label">{{item.value}}</view>
+			<view class="text extend" wx:if="{{detailExtend.value&&detailExtend.value.length}}">
+				<view wx:for="{{detailExtend.value}}" wx:for-item="$item" wx:key="$item">{{$item}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="title">优惠券详情</view>
+	<view class="html">
+		<view class="node" wx:for="{{detailHtml}}" wx:key="item">
+			<rich-text nodes="{{item}}" class="content"></rich-text>
+			<!-- <view class="content" wx:else>{{item}}</view> -->
+		</view>
+	</view>
+</view>

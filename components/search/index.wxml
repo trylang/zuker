@@ -1,0 +1,13 @@
+<view class="{{['comm-header-input', editable && active?'active':'']}}">
+	<view class="comm-black" bindtap="cancelHandler" />
+	<view class="headerInput">
+		<view class="{{['xInput', editable?'':'disabled']}}">
+			<image mode="aspectFill" class="icon" src="{{icon}}" hidden="{{!icon}}" />
+			<input type="{{type}}" confirm-type="{{confirmType}}" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="inputHandler" catchfocus="focusHandler" catchconfirm="confirmHandler" />
+			<view class="xFocuer" bindtap="focusHandler" />
+			<view class="xClear" bindtap="clearHandler" />
+		</view>
+		<view class="xCancel" bindtap="cancelHandler">取消</view>
+	</view>
+	<slot />
+</view>

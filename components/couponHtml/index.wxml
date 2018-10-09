@@ -1,0 +1,13 @@
+<view class="comm-coupon-html}}" hidden="{{delete}}">
+	<view class="upload" data-type="htmlpic" bindtap="chooseImageHandler" wx:if="{{mode && !content}}">
+		<image mode="aspectFill" src="../../../../../assets/icon_upload_pic.jpg" />
+		请上传图片, 大小不超过2Mb
+	</view>
+	<rich-text nodes="<img style='width: 100%;' src='{{content}}'>" wx:if="{{mode && content}}" style="width: 100%;"></rich-text>
+	<!-- <image mode="aspectFill" src="{{content}}" wx:if="{{mode && content}}" style="width: 100%;" /> -->
+	<view class="textarea {{content?'':'placeholder'}}" hover-class="textareaHover" hover-start-time="{{10}}" hover-stay-time="{{100}}" wx:if="{{!mode}}" bindtap="inputHandler">
+		{{content||'请输入说明文字'}}
+	</view>
+	<view class="couter" wx:if="{{!mode}}" style="margin-top: {{content.length>20?'0':'-44'}}rpx;">{{content.length}}/{{maxlength}}</view>
+	<view class="delete {{mode?'':'transparent'}}" catchtap="deleteHandler" />
+</view>

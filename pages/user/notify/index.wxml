@@ -1,0 +1,13 @@
+<navigator />
+<view class="header">
+	<view class="title">
+		<view class="red">{{unreadNum}}条</view>系统通知
+	</view>
+</view>
+<view class="body">
+	<view class="{{['item', item.read?'':'unread']}}" bindtap="msgInfo" id="{{item.id}}" wx:for="{{list}}" wx:key="index">
+		<view class="title">{{item.title}}</view>
+		<view class="extend">{{item.content}}</view>
+		<view class="time"><text>{{item.time}}</text><text class="type">系统通知</text></view>
+	</view>
+</view>

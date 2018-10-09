@@ -1,0 +1,11 @@
+<view class="comm-coupon-item">
+	<view class="{{['cover', type]}}" style="width:{{size}}rpx; height:{{size}}rpx;">
+		<image mode="aspectFill" src="{{cover}}" />
+	</view>
+	<view class="{{['content', (tagTextStr||tag)?'indent':'']}}">
+		<view class="tag" wx:if="{{tagTextStr||tag}}" style="color:{{tagColorStr||tagColor}}; border: solid {{tagColorStr||tagColor}} 1rpx;">{{tagTextStr||tag}}</view>
+		<view class="title">{{title}}</view>
+		<view class="extend" wx:for="{{extend}}" wx:key="item">{{item}}</view>
+		<view class="inline"><slot /></view>
+	</view>
+</view>

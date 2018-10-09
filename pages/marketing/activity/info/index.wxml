@@ -1,0 +1,31 @@
+<navigator />
+<alert title="追加投放" id="appendAlert" bindconfirm="couponAppendConfirmHandler">
+	<input type="number" confirm-type="done" value="{{appendNum}}" bindinput="couponAppendInputHandler" maxlength="8" placeholder="请输入整数" placeholder-class="appendPlaceholder" class="appendInput" />
+	<view>可投放量: {{couponLeft}}</view>
+</alert>
+<view class="header">
+	<view class="info">
+		<view class="shadow">
+			<view class="row flex">
+				<image mode="aspectFill" src="{{cover}}" />
+				<view class="col">
+					<view class="title">{{title}}</view>
+					<view>{{start}} - {{end}}</view>
+					<view>所属应用: {{owner}}</view>
+				</view>
+			</view>
+			<view class="row detail">{{detail}}</view>
+		</view>
+		<view class="couponList">
+			<title title="参与优惠券" extend="" />
+			<view class="coupon" wx:for="{{couponList}}" wx:key="item" data-id="{{item.id}}">
+				<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.title}}" extend="{{item.extend}}">
+					<coupon-analysis data-id="{{item.id}}" extend="{{item.analysis}}" button="{{item.appendAble?'追加':''}}" bindconfirm="couponAppendHandler" />
+				</coupon>
+			</view>
+			<view class="bottomer" />
+		</view>
+	</view>
+</view>
+
+<fixed title="新增参与优惠券" bindconfirm="goAppendHandler" />

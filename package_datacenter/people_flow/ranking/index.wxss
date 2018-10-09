@@ -1,0 +1,51 @@
+.body .content {
+  padding: 0 73rpx;
+}
+
+.body .tab {
+  background: #555;
+}
+
+.body .content .item-title {
+  font-size: 24rpx;
+  color: #999;
+  padding-left: 254rpx;
+  padding-top: 60rpx;
+}
+
+.body .content .item-title .first {
+  padding-right: 68rpx;
+}
+
+.content .item-con {
+  display: flex;
+  height: 200rpx;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.content .item-con .name {
+  flex: 1.2;
+  font-size: 30rpx;
+  color: #222;
+  padding-right: 50rpx;
+  text-align: right;
+}
+
+.content .item-con .cur-value {
+  flex: 1;
+  font-size: 96rpx;
+  color: #ff5400;
+  font-weight: 600;
+}
+
+.content .item-con .last-value {
+  flex: 1;
+  font-size: 72rpx;
+  color: #999;
+  font-weight: 600;
+}
+
+.item-con:last-child .cur-value{
+  color: #27cd4e;
+}

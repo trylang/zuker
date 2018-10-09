@@ -1,0 +1,8 @@
+<image mode="aspectFill" src="{{banner}}" class="banner" />
+<view class="body">
+	<view class="nav" wx:for="{{nav}}" wx:key="label" data-path="{{item.path}}" bindtap="navHandler">
+		<image mode="aspectFill" src="{{item.icon}}" />
+		<view class="label">{{item.label}}</view>
+	</view>
+</view>
+<nav index="{{isMarket?1:0}}" />

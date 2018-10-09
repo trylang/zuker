@@ -1,0 +1,53 @@
+.activity .header{
+	background: #efefef;
+	padding: 20rpx 30rpx;
+	display: block;
+}
+.activity .header .item:nth-of-type(n+2){
+	margin-top: 20rpx;
+	position: relative;
+}
+.activity .header .controller{
+	font-size: 0;
+	text-align: center;
+}
+.activity .header .controller .button{
+	font-size: 34rpx;
+	line-height: 88rpx;
+	border: solid #ff5400 1rpx;
+	border-radius: 10rpx;
+	padding: 0 110rpx;
+	margin-right: 20rpx;
+	display: inline-block;
+}
+.activity .header .controller .button:last-of-type{
+	margin: 0;
+}
+.activity .header .controller .button.fill{
+	color: #fff;
+	background: #ff5400;
+}
+
+.activity .actList{
+	padding: 30px;
+}
+.activity .actList .item{
+	min-height: 120rpx;
+	margin-right: 30rpx;
+	padding-bottom: 65rpx;
+	position: relative;
+}
+.activity .actList .item:after{
+	content: '';
+	width: 12rpx;
+	height: 12rpx;
+	border-top: solid #999 1rpx;
+	border-right: solid #999 1rpx;
+	-webkit-transform: translateY(-50%) rotate(45deg);
+	transform: translateY(-50%) rotate(45deg);
+	display: block;
+	position: absolute;
+	right: -30rpx;
+	top: 50%;
+	margin-top: -25rpx;
+}

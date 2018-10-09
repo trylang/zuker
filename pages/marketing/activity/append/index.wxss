@@ -1,0 +1,74 @@
+.couponList{
+	background: #fff;
+	padding: 0 30rpx 150rpx;
+}
+.couponList .listItem{
+	border-bottom: solid #f8f8f8 1rpx;
+	padding: 30rpx 0;
+}
+.couponList .listItem:last-of-type{
+	border-bottom: none;
+}
+.couponList .left{
+	color: #999;
+	display: inline-block;
+}
+.couponList .leftNum{
+	color: #ff5400;
+	font-weight: bold;
+	margin-left: 10rpx;
+	display: inline-block;
+}
+.couponList .item .append{
+	line-height: 70rpx;
+	padding-left: 35rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.couponList .item .append .couponNum{
+	color: #ccc;
+	height: 100rpx;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f5f5f5;
+	border-radius: 10rpx;
+}
+.couponList .item .append .couponNum.active{
+	color: #000;
+}
+.couponList .coupon{
+	border-bottom: solid #f8f8f8 1rpx;
+	padding: 30rpx 0;
+}
+.couponList .coupon:last-of-type{
+	border: none;
+}
+
+.fixedBefore{
+	width: 510rpx;
+	background: #f5f5f7;
+}
+.fixedBefore .gray{
+	color: #999;
+	display: inline-block;
+}
+.fixedBefore .red{
+	color: #ff5400;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.appendPlaceholder{
+	color: #ccc;
+}
+.appendInput{
+	width: 400rpx;
+	height: 100rpx;
+	font-size: 36rpx;
+	line-height: 100rpx;
+	background: #f5f5f5;
+	border: solid #ccc 1rpx;
+	border-radius: 10rpx;
+	margin: 0 auto 30rpx;
+}

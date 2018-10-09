@@ -1,0 +1,28 @@
+/* pages/user/notify/info/index.wxss */
+page{
+  background: #F5F5F5;
+}
+.msgDetail{
+  padding: 24rpx 40rpx;
+  background-color: #fff;
+}
+.msgTitle{
+  font-size: 30rpx;
+  color: #FF5400;
+}
+.time{
+  font-size: 24rpx;
+  color: #999;
+  margin: 15rpx 0;
+}
+.content{
+  font-size: 30rpx;
+  color: #282828;
+  line-height: 1.5;
+}
+.foot{
+  margin-top: 25rpx;
+  font-size: 30rpx;
+  color: #282828;
+  line-height: 1.7;
+}

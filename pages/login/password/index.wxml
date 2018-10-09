@@ -1,0 +1,16 @@
+<navigator />
+<view class="header">
+	<view class="error" wx:if="{{error}}">{{error}}</view>
+	<view class="form">
+		<input type="number" confirm-type="done" maxlength="11" placeholder="请输入手机号" placeholder-class="placeholder" bindinput="mobileInputHandler" bindconfirm="mobileConfirmHandler" />
+		<view class="vcode">
+			<input type="number" confirm-type="done" maxlength="8" placeholder="请输入验证码" placeholder-class="placeholder" bindinput="codeInputHandler" bindconfirm="codeConfirmHandler" />
+			<view class="button" bindtap='getUserInfoByMobileNum'>{{text}}</view>
+		</view>
+		<input type="text" confirm-type="done" maxlength="12" placeholder="请输入新密码" placeholder-class="placeholder" bindinput="newInputHandler" bindconfirm="newConfirmHandler" />
+	</view>
+	<view class="tip">
+		提示: 长度在8位及以上, 密码包含数字, 大小写字母, 特殊字符中的两种或以上.
+	</view>
+</view>
+<view class="{{['confirm button', modifyAble?'':'disabled']}}" bindtap="confirmHandler">确认修改</view>

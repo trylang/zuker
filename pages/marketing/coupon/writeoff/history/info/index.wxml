@@ -1,0 +1,27 @@
+<navigator />
+<view class="header" style="padding-bottom: 0;">
+	<view class="title">优惠券详情</view>
+</view>
+<view class="form">
+	<view class="label">
+		<view class="text" wx:for="{{couponInfo}}" wx:key="item.label" wx:if="{{item.value&&item.value.length}}">{{item.label}}</view>
+		<view class="text extend" wx:if="{{couponInfoExtend.value&&couponInfoExtend.value.length}}">{{couponInfoExtend.label}}</view>
+	</view>
+	<view class="value">
+		<view class="text" wx:for="{{couponInfo}}" wx:key="item.label" wx:if="{{item.value&&item.value.length}}">{{item.value}}</view>
+		<view class="text extend" wx:if="{{couponInfoExtend.value&&couponInfoExtend.value.length}}">
+			<view wx:for="{{couponInfoExtend.value}}" wx:for-item="$item" wx:key="$item">{{$item}}</view>
+		</view>
+	</view>
+</view>
+<view class="header" style="padding-bottom: 0;">
+	<view class="title">领取/核销详情</view>
+</view>
+<view class="form">
+	<view class="label">
+		<view class="text" wx:for="{{writeoffInfo}}" wx:key="item.label" wx:if="{{item.value&&item.value.length}}">{{item.label}}</view>
+	</view>
+	<view class="value">
+		<view class="text" wx:for="{{writeoffInfo}}" wx:key="item.label" wx:if="{{item.value&&item.value.length}}">{{item.value}}</view>
+	</view>
+</view>

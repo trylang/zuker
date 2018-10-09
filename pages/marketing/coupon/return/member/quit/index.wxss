@@ -1,0 +1,104 @@
+.header{
+	margin: 55rpx 30rpx;
+}
+.body{
+	border-bottom: solid #efefef 1rpx;
+	padding-bottom: 50rpx;
+	margin: 50rpx 75rpx;
+	position: relative;
+}
+.body image{
+	width: 140rpx;
+	height: 140rpx;
+	border-radius: 50%;
+	margin: 0 auto;
+	display: block;
+}
+.body .title{
+	font-size: 36rpx;
+	line-height: 60rpx;
+	margin-top: 15rpx;
+	text-align: center;
+}
+.body .id{
+	font-weight: bold;
+	font-size: 34rpx;
+	color: #17305c;
+	line-height: 60rpx;
+	text-align: center;
+}
+.body .id .label{
+	font-weight: normal;
+	color: #aaa;
+	margin-right: 10rpx;
+	display: inline-block;
+}
+.footer{
+	padding: 10rpx 30rpx;
+}
+.footer .notice{
+	text-align: center;
+}
+.footer .notice .text{
+	font-size: 34rpx;
+  color: #282828;
+  text-align: left;
+  font-weight:600;
+}
+.footer .couponList{
+	padding: 20rpx 0 50rpx 0;
+}
+.footer .couponList .radio {
+  padding: 30rpx 0 30rpx 10rpx;
+	border-bottom: solid #eee 1rpx;
+}
+
+.footer .couponList .radio:last-of-type{
+	border: none;
+}
+.footer .couponList .radio .detail{
+	-webkit-display: flex;
+	display: flex;
+}
+.footer .couponList .radio .detail .info{
+	line-height: 50rpx;
+	margin-top: 10rpx;
+}
+
+.footer .couponList .radio .detail .info .val {
+  display: inline;
+  font-size: 30rpx;
+  font-weight:bold;
+}
+
+.title-val{
+	width: 100%;
+	font-size: 34rpx;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	text-indent: 0;
+	position: relative;
+}
+
+.uncheck-val {
+	color: #CCC;
+}
+
+.text-val{
+	color: #999;
+}
+
+.info-val {
+	color: #282828;
+}
+
+.put-val {
+  color: #17305C;
+}
+
+.get-val {
+  color: #FF5400;
+}

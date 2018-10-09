@@ -1,0 +1,33 @@
+@-webkit-keyframes flyInBottom{
+	from{ -webkit-transform: translateY(100%); }
+	to{ -webkit-transform: translateY(0%); }
+}
+@keyframes flyInBottom{
+	from{ transform: translateY(100%); }
+	to{ transform: translateY(0%); }
+}
+
+.comm-picker{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+}
+.comm-picker .item-container{
+	font-size: 36rpx;
+	width: 100%;
+	line-height: 120rpx;
+	background: #fff;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	-webkit-animation: flyInBottom .4s both;
+	animation: flyInBottom .4s both;
+}
+.comm-picker .item-container.cancel .item:last-of-type{
+	border-top: solid #eee 20rpx;
+}

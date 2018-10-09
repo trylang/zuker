@@ -1,0 +1,23 @@
+.fixed{
+	width: 100%;
+	-webkit-display: flex;
+	display: flex;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.fixed .button{
+	font-size: 36rpx;
+	background: #f5f5f5;
+	line-height: 120rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.fixed .button.disabled{
+	color: #ccc;
+}
+.fixed .button.red{
+	color: #fff;
+	background: #ff5400;
+}

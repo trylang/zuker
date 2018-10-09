@@ -1,0 +1,151 @@
+<navigator />
+<picker id="assignPicker" data="{{['退回', '转派', '完成']}}" bindconfirm="assignHandler" />
+<alert id="urgeAlertReturn" title="" bindconfirm="urgeReturnConfirmHandler">
+	<view class="urge icon return" />
+	<view style="font-size: 36rpx; font-weight: bold;">工单退回</view>
+	<view style="line-height: 60rpx;">此工单不属于您的业务范围</view>
+</alert>
+<alert id="urgeAlertSuccess" title="" cancel="" confirm="我知道了">
+	<view class="urge icon success" />
+	<view style="font-size: 36rpx; font-weight: bold;">催办成功</view>
+	<view style="line-height: 60rpx;">维修人员已收到工单提醒</view>
+</alert>
+<alert id="urgeAlertFail" title="" cancel="" confirm="我知道了">
+	<view class="urge icon fail" />
+	<view style="font-size: 36rpx; font-weight: bold;">催办失败</view>
+	<view style="line-height: 60rpx;">请不要频繁催办</view>
+</alert>
+<alert id="urgeAlertRate" title="工单评价" cancel="" confirm="">
+	<view style="font-size: 34rpx; text-align: left;">请对工单维修情况进行评价</view>
+	<view style="padding: 30rpx 0;">
+		<view class="rateContent" wx:for="{{userRate}}" wx:key="name">
+			<view class="title">{{item.name}}</view>
+			<view class="comp" style="width: 260rpx">
+				<rate value="{{item.grade-1}}" data-index="{{index}}" bindchange="userRateHandler" />
+			</view>
+			<view class="desc">{{['很差', '差', '一般', '好', '非常好'][item.grade-1]}}</view>
+		</view>
+	</view>
+	<abutton title="提交评价" bindtap="urgeAlertRateHandler" />
+</alert>
+<view class="container">
+	<view class="title">
+		{{title}}
+		<view class="tag">
+			<view class="{{item.class}}" wx:for="{{tags}}" wx:key="item.value">{{item.value}}</view>
+		</view>
+	</view>
+	<view class="person">
+		<view class="label">报修人员</view>{{reportName}}
+		<view class="label">报修时间</view>{{reportTime}}
+	</view>
+	<view class="timeline" wx:if="{{modifyMode>1001}}">
+		<view class="item {{item.active?'active':''}}" wx:for="{{timeKeys}}" wx:key="name">
+			{{item.name}}
+			<view class="time">{{item.date}}</view>
+			<view class="time">{{item.time}}</view>
+		</view>
+	</view>
+	<view class="worker" wx:if="{{modifyMode>1001}}">
+		<view class="label">维修人员</view>{{worker}}
+		<view class="label">联系电话</view>
+		<view style="color: #6b85b1; margin-left: 0; display: inline;" data-phone="{{workerPhone}}" bindtap="callHandler">{{workerPhoneFormat}}</view>
+	</view>
+	<view class="workInfo" wx:if="{{modifyMode>1002}}">
+		<view class="type" style="border-bottom: solid #dedede 1rpx;">
+			<view class="label">处理方式</view>{{repairModeName}}
+		</view>
+		<view class="cost" wx:if="{{repairMode == 1}}">
+			<view class="label" wx:for="{{repairPrice}}" wx:key="name">{{item.name}}￥<view style="display: inline;">{{item.price}}</view></view>
+			<view class="label">总金额</view><view style="display: inline; color: #ff5400; font-weight: bold;">￥{{repairPriceTotal}}</view>
+		</view>
+		<view class="detail">
+			<view class="label">处理说明</view>
+			<view class="content">{{repairDetail}}</view>
+		</view>
+		<view class="photos">
+			<view class="label">维修照片</view>
+			<view class="content">
+				<image mode="aspectFill" src="{{item}}" wx:for="{{repairPhotos}}" wx:key="item" />
+			</view>
+		</view>
+	</view>
+	<view class="workInfo" style="background: #fff;">
+		<view class="detail">
+			<view class="label">所属建筑及楼层</view>
+			<view class="content">{{reportBuild}} {{reportFloor}}</view>
+		</view>
+		<view class="detail">
+			<view class="label">报修类型</view>
+			<view class="content">{{reportCate}}</view>
+		</view>
+		<view class="detail">
+			<view class="label">报修内容</view>
+			<view class="content">{{reportDetail}}</view>
+		</view>
+		<view class="photos">
+			<view class="label">现场照片</view>
+			<view class="content">
+				<image mode="aspectFill" src="{{item}}" wx:for="{{reportPhotos}}" wx:key="item" />
+			</view>
+		</view>
+		<view class="detail" wx:if="{{modifyMode>1003}}">
+			<view class="label">我的评分<view style="display: inline; color: #ff5400; font-weight: bold;">({{reportRateScore}}分)</view></view>
+			<view class="content">
+				<view class="rateContent" wx:for="{{reportRate}}" wx:key="name">
+					<view class="title">{{item.name}}</view>
+					<view class="comp">
+						<rate value="{{item.grade-1}}" data-index="{{index}}" />
+					</view>
+					<view class="desc">{{['很差', '差', '一般', '好', '非常好'][item.grade-1]}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="photos">
+			<view class="label">工单日志</view>
+			<view class="content">
+				<view class="orderStep {{item.active?'active':''}}" wx:for="{{reportLogs}}" wx:key="operationTime">
+					<view class="time">
+						<view style="color: #000; font-size: 30rpx;">{{item.dateFormat}}</view>
+						{{item.timeFormat}}
+					</view>
+					<view class="spacer">
+						<view class="icon">
+							<image mode="aspectFit" src="{{item.icon}}" />
+						</view>
+					</view>
+					<view class="info">
+						<view style="color: #000; font-size: 34rpx;">{{item.title}}</view>
+						{{item.userName}}<view style="color: #6b85b1; margin-left: 20rpx; display: inline;" data-phone="{{item.mobile}}" bindtap="callHandler">{{item.mobileFormat}}</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+		
+	</view>
+</view>
+<view>
+	<view class="bottomer" />
+<!-- 	<abutton title="催办 ({{urgeUsed}}/{{urgeMax}})" bindtap="urgeHandler" />
+	<abutton title="评价工单" bindtap="urgeRateHandler" />
+
+	<abutton title="分配" bindtap="urgeAssignHandler" />
+	<abutton title="重新分配" bindtap="urgeAssignHandler" />
+	<abutton title="催办 (1/5)" bindtap="urgeHandler" />
+	<abutton title="评价工单" bindtap="urgeRateHandler" />
+
+	<abutton title="工单处理" bindtap="urgeMakeHandler" />
+
+ -->
+	<fixed title="催办 ({{urgeUsed}}/{{urgeMax}})" bindconfirm="urgeHandler" wx:if="{{modifyButtonMode == 302}}" />
+	<fixed title="评价工单" bindconfirm="urgeRateHandler" wx:if="{{modifyButtonMode == 303 && reportSelf}}" />
+
+	<fixed title="分配" bindconfirm="urgeAssignHandler" wx:if="{{modifyButtonMode == 201}}" />
+	<fixed title="重新分配" bindconfirm="urgeAssignHandler" wx:if="{{modifyButtonMode == 202}}">
+		<view style="-webkit-flex: 1; flex: 1; background: #fff; border: #fc3c08 solid 2rpx;" bindtap="urgeHandler">催办 ({{urgeUsed}}/{{urgeMax}})</view>
+	</fixed>
+	<fixed title="评价工单" bindconfirm="urgeRateHandler" wx:if="{{modifyButtonMode == 203 && reportSelf}}" />
+
+	<fixed title="工单处理" bindconfirm="urgeMakeHandler" wx:if="{{modifyButtonMode == 101}}" />
+</view>

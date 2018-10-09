@@ -1,0 +1,22 @@
+<navigator />
+<view class="activity">
+	<view class="header">
+		<view class="item" wx:hidden="{{searchMode!=0&&searchMode!=1}}">
+			<header-input icon="../../../../../assets/icon_input_search.jpg" placeholder="搜索活动" bindopen="searchActModeStater" bindcancel="searchActModeEnder" bindsearch="searchInputHandler" />
+		</view>
+		<view class="item" wx:hidden="{{searchMode!=0&&searchMode!=2}}">
+			<header-input icon="../../../../../assets/icon_input_datepicker.jpg" placeholder="请选择活动有效时间" editable="{{false}}" bindopen="openPickerHandler" id="dateInput" />
+			<datepicker id="dpicker" bindclose="closePickerHandler">
+				<view class="controller">
+					<view class="button" bindtap="pickerResetHandler">重置</view>
+					<view class="button fill" bindtap="pickConfirmHandler">确定</view>
+				</view>
+			</datepicker>
+		</view>
+	</view>
+	<view class="actList">
+		<view class="item" wx:for="{{activityList}}" wx:key="item" data-index="{{index}}" catchtap="infoHandler">
+			<coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" tagColor="{{item.tagColor}}" title="{{item.title}}" extend="{{item.extend}}" />
+		</view>
+	</view>
+</view>

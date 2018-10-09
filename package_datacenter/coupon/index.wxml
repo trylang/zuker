@@ -1,0 +1,48 @@
+<navigator label="核销统计"/>
+<view class="container">
+    <view class="header">
+        <view class="router-item" data-item="{{item}}" bindtap="toggleSelect" wx:for="{{router}}" wx:key="key" wx:for-item="item">
+            <image class="router-img" mode="aspectFill" src="{{selectRoute === item.type ? item.selImg : item.img}}" />
+            <text class="router-label" style="color: {{selectRoute === item.type ? '#3A6DC4' : ''}}">{{item.title}}</text>
+        </view>
+    </view>
+    <view class="selector">
+        <view class="item" wx-if="{{selectRoute === 'coupon'}}">
+            <select placeholder="{{couponSearchCateObj.value||'券类型'}}" bindopen="cateOpenHandler" bindclose="cateCloseHandler" id="select4" />
+        </view>
+        <view class="item" wx-if="{{selectRoute === 'activity'}}">
+            <select placeholder="{{couponSearchActivityObj.value||'活动'}}" bindopen="actOpenHandler" bindclose="actCloseHandler" id="select5" />
+        </view>
+        <view class="item item-date">
+            <select placeholder="{{couponSearchDate||'统计时间'}}" bindopen="writeoffOpenHandler" 
+            bindclose="writeoffCloseHandler" id="select6" />
+        </view>
+        <view class="dropdown">
+            <datepicker id="datepicker" mode="range" simple="{{true}}" bindclose="dropdownPickerCloseHandler" />
+            <view class="{{['list', couponSearchDropId==item.id?'active':'']}}" wx:for="{{couponSearchDrop}}" wx:key="item" data-index="{{index}}" bindtap="dropdownHandler">{{item.value}}</view>
+        </view>
+    </view>
+
+    <view class="couponList" wx-if="{{selectRoute === 'activity'}}">
+        <view class="coupon" wx:for="{{couponList}}" wx:key="item" data-index="{{index}}">
+            <view class="row">
+                <view class="title">{{item.activityName}}</view>
+            </view>
+            <view class="row">
+                <view class="left">统计时间<view class="leftDate">{{item.writeoffTime}}</view></view>
+                <view class="left">券核销量<view class="leftNum">{{item.writeoffNum}}</view></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="couponList" wx-if="{{selectRoute === 'coupon'}}">
+        <view class="coupon" wx:for="{{couponList}}" wx:key="item" data-index="{{index}}">
+            <coupon cover="{{item.cover}}" type="{{item.type}}" tag="{{item.tag}}" title="{{item.couponName}}">
+                <view class="list">
+                    <view class="left">统计时间<view class="leftDate">{{item.writeoffTime}}</view></view>
+                    <view class="left">券核销量<view class="leftNum">{{item.writeoffNum}}</view></view>
+                </view>
+            </coupon>
+        </view>
+    </view>
+</view>

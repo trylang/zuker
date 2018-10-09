@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"navigator": "/components/navigator/index",
+		"datepicker": "/components/datepicker/index",
+		"header-input": "/components/search/index",
+		"coupon": "/components/couponItem/index"
+	}
+}

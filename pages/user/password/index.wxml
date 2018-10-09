@@ -1,0 +1,15 @@
+<navigator />
+<view class="header">
+	<view class="error" wx:if="{{error}}">{{error}}</view>
+	<view class="form">
+		<input type="password" confirm-type="done" maxlength="12" placeholder="旧密码" placeholder-class="placeholder" bindinput="oldInputHandler" bindconfirm="oldConfirmHandler" />
+		<input type="password" confirm-type="done" maxlength="12" placeholder="新密码" placeholder-class="placeholder" bindinput="newInputHandler" bindconfirm="newConfirmHandler" />
+		<input type="password" confirm-type="done" maxlength="12" placeholder="再次输入新密码" placeholder-class="placeholder" bindinput="newTwoInputHandler" bindconfirm="newTwoConfirmHandler" />
+	</view>
+	<view class="tip">
+		提示: 长度在8位及以上, 密码包含数字, 大小写字母, 特殊字符中的两种或以上.
+	</view>
+</view>
+<view class="footer">
+	<abutton title="确认修改" disabled="{{modifyAble}}" bindtap="confirmHandler" />
+</view>

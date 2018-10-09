@@ -1,0 +1,20 @@
+<navigator label="扫码退券"></navigator>
+<view class="header">
+	<step data="{{['选择查询类型', '查询', '退券', '完成']}}" index="{{3}}" />
+</view>
+<view class="body">
+    <view class="success" />
+    <view class="title">退券成功</view>
+	<view class="coupon">       
+        <view class="title">{{couponInfo.mainInfo}}</view>
+		<view class="extend">{{couponInfo.extendInfo}}</view>
+		
+		<view class="id normal" wx:for="{{objs}}" wx:key="key" wx:for-index="key" wx:for-item="item">
+			<view class="label">{{key}}</view>
+			{{couponInfo[item]}}
+		</view>
+	</view>
+</view>
+<view class="footer">
+	<abutton title="返回首页" bindtap="homeHandler" />
+</view>

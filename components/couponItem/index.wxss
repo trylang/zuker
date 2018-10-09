@@ -1,0 +1,105 @@
+.comm-coupon-item{
+	-webkit-display: flex;
+	display: flex;
+}
+
+.comm-coupon-item .cover{
+	margin-right: 20rpx;
+	position: relative;
+}
+.comm-coupon-item .cover image{
+	width: 100%;
+	height: 100%;
+}
+.comm-coupon-item .cover:after{
+	content: '';
+	color: #fff;
+	font-size: 22rpx;
+	width: 55rpx;
+	height: 55rpx;
+	line-height: 35rpx;
+	background: linear-gradient(135deg, #ff5400 0%, #ff5400 50%, transparent 50%);
+	text-indent: 5rpx;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.comm-coupon-item .cover.normal:after{
+	content: '通';
+	display: block;
+}
+.comm-coupon-item .cover.cash:after{
+	content: '代';
+	display: block;
+}
+.comm-coupon-item .cover.discount:after{
+	content: '折';
+	display: block;
+}
+.comm-coupon-item .cover.gift:after{
+	content: '礼';
+	display: block;
+}
+.comm-coupon-item .cover.free:after{
+	content: '免';
+	display: block;
+}
+
+.comm-coupon-item .cover.brand:after{
+	content: '品';
+	background: linear-gradient(135deg, #3a6dc4 0%, #3a6dc4 50%, transparent 50%);
+	display: block;
+}
+.comm-coupon-item .cover.single:after{
+	content: '单';
+	background: linear-gradient(135deg, #3a6dc4 0%, #3a6dc4 50%, transparent 50%);
+	display: block;
+}
+
+.comm-coupon-item .content{
+	overflow: hidden;
+	-webkit-flex: 1;
+	flex: 1;
+	position: relative;
+}
+
+.comm-coupon-item .content .tag{
+	font-size: 23rpx;
+	height: 35rpx;
+	line-height: 35rpx;
+	width: 95rpx;
+	border-radius: 10rpx;
+	padding: 0 10rpx;
+	text-align: center;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 7rpx;
+}
+.comm-coupon-item .content.indent .title{
+	text-indent: 100rpx;
+}
+.comm-coupon-item .content .title{
+	width: 100%;
+	font-size: 34rpx;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	text-indent: 0;
+	position: relative;
+}
+
+.comm-coupon-item .content .extend{
+	font-size: 26rpx;
+	color: #999;
+	line-height: 40rpx;
+	display: block;
+}
+.comm-coupon-item .content .inline{
+	display: block;
+}
+
